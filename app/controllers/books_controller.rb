@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-
   before_action :find_book, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,11 +9,11 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    @book = current_user.books.build
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.build(book_params)
     if @book.save
       redirect_to root_path
     else
@@ -47,5 +46,4 @@ class BooksController < ApplicationController
     def find_book
       @book = Book.find(params[:id])
     end
-
 end
