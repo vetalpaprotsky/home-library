@@ -55,7 +55,7 @@ class BooksController < ApplicationController
     end
 
     def get_categories_for_select
-      @categories = Category.order_desc_by_name.map { |c| [c.name, c.id] }
+      @categories = Category.order_asc_by_name.map { |c| [c.name, c.id] }
     end
 
 end
