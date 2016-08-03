@@ -23,6 +23,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to root_path
     else
+      get_categories_for_select
       render 'new'
     end
   end

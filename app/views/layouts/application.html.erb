@@ -28,6 +28,9 @@
             Categories <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">
+            <!--<li class="<%= 'active' if params[:category].blank? && (current_page?(root_path) || current_page?(books_path)) %>">
+              <%= link_to "All", root_path, class: "link" %>
+            </li>-->
             <% Category.order_desc_by_name.each do |category| %>
               <li class="<%= 'active' if params[:category] == category.name %>">
                 <%= link_to category.name, books_path(category: category.name), class: "link" %>
