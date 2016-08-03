@@ -6,5 +6,6 @@ FactoryGirl.define do
     description { Faker::Lorem.paragraph }
     author { Faker::Book.author }
     association :user, factory: :user
+    association :category, factory: :category
   end
 end

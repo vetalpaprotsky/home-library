@@ -1,3 +1,9 @@
-<h1>Books</h1>
+<% if params[:category] %>
+  <h1 class="current-category"><%= params[:category] %></h1>
+<% end %>
 
-<%= render @books %>
+<% if @books.any? %>
+  <%= render @books %>
+<% else %>
+  <h1>There're no books in this category</h1>
+<% end %>

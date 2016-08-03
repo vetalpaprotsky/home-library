@@ -1,5 +1,7 @@
 <%= simple_form_for @book do |f| %>
-  <%= f.input :title, label: "Book Title" %>
+  <!--<%= f.association :category, as: :select %>-->
+  <%= f.input :category_id, collection: @categories, prompt: "..." %>
+  <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :author %>
   <%= f.button :submit %>
