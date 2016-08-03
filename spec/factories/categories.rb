@@ -1,5 +1,7 @@
+require 'faker'
+
 FactoryGirl.define do
   factory :category do
-    name "MyString"
+    name { Faker::Book.genre }
   end
 end
