@@ -9,10 +9,21 @@ describe Book do
   it { should respond_to(:description) }
   it { should respond_to(:author) }
   it { should respond_to(:user) }
+  it { should respond_to(:category) }
   it { should be_valid }
 
   describe "when title is not present" do
     before { @book.title = nil }
+    it { should_not be_valid }
+  end
+
+  describe "when title has length less than 2 characters" do
+    before { @book.title = 'a' }
+    it { should_not be_valid }
+  end
+
+  describe "when title has length more than 255 characters" do
+    before { @book.title = "#{'a' * 256}" }
     it { should_not be_valid }
   end
 
@@ -21,13 +32,33 @@ describe Book do
     it { should_not be_valid }
   end
 
+  describe "when description has length less than 127 characters" do
+    before { @book.description = "#{'a' * 126}" }
+    it { should_not be_valid }
+  end
+
   describe "when author is not present" do
     before { @book.author = nil }
     it { should_not be_valid }
   end
 
+  describe "when author has length less than 2 characters" do
+    before { @book.author = 'a' }
+    it { should_not be_valid }
+  end
+
+  describe "when author has length more than 255 characters" do
+    before { @book.author = "#{'a' * 256}" }
+    it { should_not be_valid }
+  end
+
   describe "when user_id is not present" do
     before { @book.user_id = nil }
+    it { should_not be_valid }
+  end
+
+  describe "when category_id is not present" do
+    before { @book.category_id = nil }
     it { should_not be_valid }
   end
 end
