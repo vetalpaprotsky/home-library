@@ -1,13 +1,15 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :find_book, only: [:show, :edit, :update, :destroy]
-  before_action :get_categories_for_select, only: [:new, :edit]
+  before_action :redirect_to_index_if_current_user_does_not_own_book,
+                only: [:edit, :update, :delete]
 
   def index
     @books = if params[:category].blank?
                Book.all.order('created_at DESC')
              else
                category_id = Category.find_by(name: params[:category])
-               Book.where(category_id: category_id)
+               Book.where(category_id: category_id).order('created_at DESC')
              end
   end
 
@@ -21,9 +23,8 @@ class BooksController < ApplicationController
   def create
     @book = current_user.books.build(book_params)
     if @book.save
-      redirect_to root_path
+      redirect_to books_path
     else
-      get_categories_for_select
       render 'new'
     end
   end
@@ -33,7 +34,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-      redirect_to @book # book_path(@book)
+      redirect_to book_path(@book)
     else
       render 'edit'
     end
@@ -41,7 +42,7 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy
-    redirect_to root_path
+    redirect_to books_path
   end
 
   private
@@ -54,8 +55,8 @@ class BooksController < ApplicationController
       @book = Book.find(params[:id])
     end
 
-    def get_categories_for_select
-      @categories = Category.order_asc_by_name.map { |c| [c.name, c.id] }
+    def redirect_to_index_if_current_user_does_not_own_book
+      redirect_to books_path if @book.user != current_user
     end
 
 end
