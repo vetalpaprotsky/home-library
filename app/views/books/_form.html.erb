@@ -1,4 +1,4 @@
-<%= simple_form_for @book do |f| %>
+<%= simple_form_for @book, :html => {:multipart => true} do |f| %>
   <%= f.association :category, as: :select %>
   <%= f.file_field :book_img %>
   <%= f.input :title %>

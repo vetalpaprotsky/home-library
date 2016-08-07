@@ -10,6 +10,7 @@ describe Book do
   it { should respond_to(:author) }
   it { should respond_to(:user) }
   it { should respond_to(:category) }
+  it { should respond_to(:book_img) }
   it { should be_valid }
 
   describe "when title is not present" do
