@@ -3,7 +3,9 @@
 <% end %>
 
 <% if @books.any? %>
-  <%= render @books %>
+  <div class="row">
+    <%= render @books %>
+  </div>
 <% else %>
   <h1>There're no books in this category</h1>
 <% end %>
