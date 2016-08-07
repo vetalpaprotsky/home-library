@@ -1,1 +1,5 @@
-<h2><%= link_to book.title, book_path(book) %></h2>
+<div class="col-md-3">
+  <%= link_to book_path(book) do %>
+    <%= image_tag book.book_img.url(:book_index), class: "book" %>
+  <% end %>
+</div>
