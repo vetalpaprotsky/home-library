@@ -15,5 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
+/public/system
 .ruby-version
 .ruby-gemset
