@@ -253,8 +253,9 @@ describe BooksController do
       end
 
       it "redirects to index if current user does not own book" do
+        book = FactoryGirl.create(:book)
         expect do
-          delete :destroy, id: FactoryGirl.create(:book)
+          delete :destroy, id: book.id
         end.not_to change(Book, :count)
         expect(response).to redirect_to :books
       end
