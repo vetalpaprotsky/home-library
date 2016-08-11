@@ -1,8 +1,8 @@
 <%= simple_form_for @book, :html => {:multipart => true} do |f| %>
   <%= f.association :category, as: :select %>
-  <%= f.input :book_img, as: :file, label: "Image", input_html: { class: "filestyle"} %>
+  <%= f.input :book_img, as: :file, label: "Image", input_html: { class: "filestyle btn-custom"} %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :author %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn-custom" %>
 <% end %>
