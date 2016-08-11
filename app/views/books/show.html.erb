@@ -1,22 +1,50 @@
 <div class="row">
   <div class="col-md-4">
+
     <%= image_tag @book.book_img.url(:book_show), class: "book-show" %>
+
+    <div class="btn-section">
+      <div class="btn-group">
+        <%= link_to "Back", root_path, class: "btn btn-default" %>
+        <% if @book.user == current_user %>
+          <%= link_to "Edit",   edit_book_path(@book), class: "btn btn-default" %>
+          <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+        <% end %>
+      </div>
+    </div>
   </div>
+
   <div class="col-md-8">
-    <h2><%= @book.title %></h2>
-    <h4><%= @book.author %></h3>
-    <p><%= @book.description %></p>
+    <div class="block">
+      <h2><%= @book.title %></h2>
+      <h4><span>by </span><%= @book.author %></h4>
+      <div class="average-review-rating-section">
+        <span class="average-review-rating" data-score="<%= @average_rating %>"></span>
+        <span class="number-of-reviews">based on <%= pluralize(@book.reviews.count, "review") %></span>
+      </div>
+      <p class="book-description"><%= @book.description %></p>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div class="btn-section">
+      <div class="btn-group">
+        <%= link_to "Add Review", new_book_review_path(@book), class: "btn btn-default" %>
+      </div>
+    </div>
+    <div class="block">
+      <h2>Reviews</h2>
+      <%= render @book.reviews %>
+    </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-4">
-    <!--where the reviews/ratings will go-->
-  </div>
-</div>
-
-<%= link_to "Back", root_path %>
-<% if @book.user == current_user %>
-  <%= link_to "Edit", edit_book_path(@book) %>
-  <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
+<script type="text/javascript">
+  $('.average-review-rating, .review-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
+</script>
