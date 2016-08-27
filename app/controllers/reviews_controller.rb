@@ -2,8 +2,6 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_book
   before_action :find_review, only: [:edit, :update, :destroy]
-  before_action :redirect_to_root_if_current_user_does_not_own_review,
-                 only: [:edit, :update, :destroy]
 
   def new
     @review = Review.new
@@ -48,11 +46,8 @@ class ReviewsController < ApplicationController
     end
 
     def find_review
-      @review = @book.reviews.find(params[:id])
-    end
-
-    def redirect_to_root_if_current_user_does_not_own_review
-      redirect_to root_path if current_user != @review.user
+      @review = @book.reviews.where(id: params[:id], user_id: current_user.id).first
+      redirect_to root_path if @review.nil?
     end
 
 end
