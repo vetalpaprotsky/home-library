@@ -1,8 +1,7 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :find_book, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_to_index_if_current_user_does_not_own_book,
-                only: [:edit, :update, :destroy]
+  before_action :find_book, only: :show
+  before_action :find_book_for_current_user, only: [:edit, :update, :destroy]
 
   def index
     @books = if params[:category].blank?
@@ -61,8 +60,9 @@ class BooksController < ApplicationController
       @book = Book.find(params[:id])
     end
 
-    def redirect_to_index_if_current_user_does_not_own_book
-      redirect_to books_path if @book.user != current_user
+    def find_book_for_current_user
+      @book = current_user.books.find_by(id: params[:id])
+      redirect_to books_path if @book.nil?
     end
 
 end
