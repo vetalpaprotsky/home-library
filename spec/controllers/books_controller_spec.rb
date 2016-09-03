@@ -18,7 +18,7 @@ shared_examples "get_index" do
     expect(assigns :books).to eq Book.where(category_id: category.id).order("created_at DESC")
   end
 
-  it "renders the index template" do
+  it "renders index template" do
     get :index
     expect(response).to render_template :index
   end
@@ -31,11 +31,11 @@ shared_examples "get_show" do
     get :show, id: @book.id
   end
 
-  it "assigns the requested book to @book" do
+  it "assigns book to @book" do
     expect(assigns :book).to eq @book
   end
 
-  it "renders the show template" do
+  it "renders show template" do
     expect(response).to render_template :show
   end
 
@@ -48,12 +48,12 @@ end
 
 shared_examples "put_update" do
 
-  it "finds book for user" do
+  it "assigns book to @book that belongs to user" do
     put :update, id: @book.id, book: @book_attr
     expect((assigns :book).user).to eq @book.user
   end
 
-  it "raises ActiveRecord::RecordNotFound if user does not own the book" do
+  it "raises ActiveRecord::RecordNotFound if user does not own book" do
     expect do
       put :update, id: FactoryGirl.create(:book).id, book: @book_attr
     end.to raise_error(ActiveRecord::RecordNotFound)
@@ -143,7 +143,7 @@ describe BooksController do
         expect(assigns(:book).user).to eq @user
       end
 
-      it "renders the new template" do
+      it "renders new template" do
         expect(response).to render_template :new
       end
     end
@@ -155,15 +155,15 @@ describe BooksController do
         get :edit, id: @book.id
       end
 
-      it "finds book for user" do
+      it "assigns book to @book that belongs to user" do
         expect(assigns(:book).user).to eq @book.user
       end
 
-      it "renders the edit template" do
+      it "renders edit template" do
         expect(response).to render_template :edit
       end
 
-      it "raises ActiveRecord::RecordNotFound if user does not own the book" do
+      it "raises ActiveRecord::RecordNotFound if user does not own book" do
         expect do
           get :edit, id: FactoryGirl.create(:book)
         end.to raise_error(ActiveRecord::RecordNotFound)
@@ -204,7 +204,7 @@ describe BooksController do
           end.to_not change(@user.books, :count)
         end
 
-        it "renders the new template" do
+        it "renders new template" do
           post :create, book: @book_attr
           expect(response).to render_template :new
         end
@@ -232,7 +232,7 @@ describe BooksController do
           expect(@book.category_id).to eq @book_attr[:category_id]
         end
 
-        it "redirects to the show template of updated book" do
+        it "redirects to show template of updated book" do
           put :update, id: @book.id, book: @book_attr
           expect(response).to redirect_to(book_path @book)
         end
@@ -257,7 +257,7 @@ describe BooksController do
           expect(@book.category_id).to_not eq @book_attr[:category_id]
         end
 
-        it "renders the edit template" do
+        it "renders edit template" do
           put :update, id: @book.id, book: @book_attr
           expect(response).to render_template :edit
         end
