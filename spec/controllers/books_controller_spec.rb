@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-shared_examples "get_index" do
+shared_examples "get index" do
 
-  it "populates an array of books ordered by created_at desc" do
+  it "populates an array of books to @books ordered by created_at desc" do
     5.times { FactoryGirl.create(:book) }
     get :index
     expect(assigns :books).to eq Book.order("created_at DESC")
   end
 
-  it "populates an array of books ordered by created_at desc with certain category" do
+  it "populates an array of books to @books ordered by created_at desc with certain category" do
     category = FactoryGirl.create(:category)
     3.times do
       FactoryGirl.create(:book)
@@ -24,18 +24,23 @@ shared_examples "get_index" do
   end
 end
 
-shared_examples "get_show" do
+shared_examples "get show" do
 
-  before do
-    @book = FactoryGirl.create(:book)
-    get :show, id: @book.id
-  end
+  before { @book = FactoryGirl.create(:book) }
 
   it "assigns book to @book" do
+    get :show, id: @book.id
     expect(assigns :book).to eq @book
   end
 
+  it "assigns avarege rating of the book to @average_rating" do
+    1.upto(5) { |n| FactoryGirl.create(:review, book_id: @book.id, rating: n) }
+    get :show, id: @book.id
+    expect(assigns :average_rating).to eq @book.reviews.average(:rating)
+  end
+
   it "renders show template" do
+    get :show, id: @book.id
     expect(response).to render_template :show
   end
 
@@ -46,7 +51,15 @@ shared_examples "get_show" do
   end
 end
 
-shared_examples "put_update" do
+shared_examples "post create" do
+
+  it "assigns book to @book that belongs to user" do
+    post :create, book: @book_attr
+    expect(assigns(:book).user).to eq @user
+  end
+end
+
+shared_examples "put update" do
 
   it "assigns book to @book that belongs to user" do
     put :update, id: @book.id, book: @book_attr
@@ -66,12 +79,12 @@ describe BooksController do
 
     describe "GET #index" do
 
-      include_examples "get_index"
+      include_examples "get index"
     end
 
     describe "GET #show" do
 
-      include_examples "get_show"
+      include_examples "get show"
     end
 
     describe "GET #new" do
@@ -127,12 +140,12 @@ describe BooksController do
 
     describe "GET #index" do
 
-      include_examples "get_index"
+      include_examples "get index"
     end
 
     describe "GET #show" do
 
-      include_examples "get_show"
+      include_examples "get show"
     end
 
     describe "GET #new" do
@@ -148,28 +161,6 @@ describe BooksController do
       end
     end
 
-    describe "GET #edit" do
-
-      before do
-        @book = FactoryGirl.create(:book, user: @user)
-        get :edit, id: @book.id
-      end
-
-      it "assigns book to @book that belongs to user" do
-        expect(assigns(:book).user).to eq @book.user
-      end
-
-      it "renders edit template" do
-        expect(response).to render_template :edit
-      end
-
-      it "raises ActiveRecord::RecordNotFound if user does not own book" do
-        expect do
-          get :edit, id: FactoryGirl.create(:book)
-        end.to raise_error(ActiveRecord::RecordNotFound)
-      end
-    end
-
     describe "POST #create" do
 
       context "with valid attributes" do
@@ -178,6 +169,8 @@ describe BooksController do
           @book_attr = FactoryGirl.attributes_for(:book,
                        category_id: FactoryGirl.create(:category).id)
         end
+
+        include_examples "post create"
 
         it "creates a new book that belongs to user" do
           expect do
@@ -198,6 +191,8 @@ describe BooksController do
                        category_id: FactoryGirl.create(:category).id)
         end
 
+        include_examples "post create"
+
         it "does not create a new book" do
           expect do
             post :create, book: @book_attr
@@ -211,6 +206,29 @@ describe BooksController do
       end
     end
 
+    describe "GET #edit" do
+
+      before do
+        @book = FactoryGirl.create(:book, user: @user)
+      end
+
+      it "assigns book to @book that belongs to user" do
+        get :edit, id: @book.id
+        expect(assigns(:book).user).to eq @book.user
+      end
+
+      it "renders edit template" do
+        get :edit, id: @book.id
+        expect(response).to render_template :edit
+      end
+
+      it "raises ActiveRecord::RecordNotFound if user does not own book" do
+        expect do
+          get :edit, id: FactoryGirl.create(:book)
+        end.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+
     describe "PUT #update" do
 
       context "with valid attributes" do
@@ -221,7 +239,7 @@ describe BooksController do
                        category_id: FactoryGirl.create(:category).id)
         end
 
-        include_examples "put_update"
+        include_examples "put update"
 
         it "changes book attributes" do
           put :update, id: @book.id, book: @book_attr
@@ -232,7 +250,7 @@ describe BooksController do
           expect(@book.category_id).to eq @book_attr[:category_id]
         end
 
-        it "redirects to show template of updated book" do
+        it "redirects to book show" do
           put :update, id: @book.id, book: @book_attr
           expect(response).to redirect_to(book_path @book)
         end
@@ -246,7 +264,7 @@ describe BooksController do
                        category_id: FactoryGirl.create(:category).id)
         end
 
-        include_examples "put_update"
+        include_examples "put update"
 
         it "does not change book attributes" do
           put :update, id: @book.id, book: @book_attr
@@ -267,6 +285,11 @@ describe BooksController do
     describe "DELETE #destroy" do
 
       before { @book = FactoryGirl.create(:book, user: @user) }
+
+      it "assigns book to @book that belongs to user" do
+        delete :destroy, id: @book.id
+        expect(assigns(:book).user).to eq @user
+      end
 
       it "deletes book" do
         expect do
