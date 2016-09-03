@@ -28,7 +28,7 @@ describe Review do
 
   describe "when comment is not present" do
     before { @review.comment = nil }
-    it { should_not be_valid }
+    it { should be_valid }
   end
 
   describe "when book_id is not present" do
