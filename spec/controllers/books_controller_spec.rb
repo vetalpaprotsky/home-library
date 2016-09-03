@@ -2,23 +2,20 @@ require 'rails_helper'
 
 shared_examples "get_index" do
 
-  it "populates an array of books ordered by id desc" do
-    books = []
-    3.times { books << FactoryGirl.create(:book) }
+  it "populates an array of books ordered by created_at desc" do
+    5.times { FactoryGirl.create(:book) }
     get :index
-    expect(assigns :books).to eq(books.reverse)
+    expect(assigns :books).to eq Book.order("created_at DESC")
   end
 
-  it "populates an array of books ordered by id desc with certain category" do
-
+  it "populates an array of books ordered by created_at desc with certain category" do
     category = FactoryGirl.create(:category)
-    books = []
-    2.times do
+    3.times do
       FactoryGirl.create(:book)
-      books << FactoryGirl.create(:book, category_id: category.id)
+      FactoryGirl.create(:book, category_id: category.id)
     end
     get :index, category: category.name
-    expect(assigns :books).to eq(books.reverse)
+    expect(assigns :books).to eq Book.where(category_id: category.id).order("created_at DESC")
   end
 
   it "renders the index template" do
