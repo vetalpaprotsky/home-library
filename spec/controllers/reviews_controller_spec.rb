@@ -27,7 +27,7 @@ describe ReviewsController do
 
       it "redirects to sign in page" do
         review = FactoryGirl.create(:review, book_id: @book.id)
-        get :edit, book_id: @book.id, id: review.id
+        get :edit, id: review.id
         expect(response).to redirect_to new_user_session_path
       end
     end
@@ -37,7 +37,7 @@ describe ReviewsController do
       it "redirects to sign in page" do
         review = FactoryGirl.create(:review, book_id: @book.id)
         attrs = FactoryGirl.attributes_for(:review)
-        put :update, book_id: @book.id, id: review.id, review: attrs
+        put :update, id: review.id, review: attrs
         expect(response).to redirect_to new_user_session_path
       end
     end
@@ -46,7 +46,7 @@ describe ReviewsController do
 
       it "redirects to sign in page" do
         review = FactoryGirl.create(:review, book_id: @book.id)
-        delete :destroy, book_id: @book.id, id: review.id
+        delete :destroy, id: review.id
         expect(response).to redirect_to new_user_session_path
       end
     end
