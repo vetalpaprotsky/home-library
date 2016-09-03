@@ -50,9 +50,10 @@ shared_examples "put_update" do
     expect((assigns :book).user).to eq @book.user
   end
 
-  it "redirects to index if user does not own the book" do
-    put :update, id: FactoryGirl.create(:book).id, book: @book_attr
-    expect(response).to redirect_to :books
+  it "raises ActiveRecord::RecordNotFound if user does not own the book" do
+    expect do
+      put :update, id: FactoryGirl.create(:book).id, book: @book_attr
+    end.to raise_error(ActiveRecord::RecordNotFound)
   end
 end
 
@@ -159,9 +160,10 @@ describe BooksController do
         expect(response).to render_template :edit
       end
 
-      it "redirects to index if user does not own the book" do
-        get :edit, id: FactoryGirl.create(:book)
-        expect(response).to redirect_to :books
+      it "raises ActiveRecord::RecordNotFound if user does not own the book" do
+        expect do
+          get :edit, id: FactoryGirl.create(:book)
+        end.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
 
@@ -274,16 +276,11 @@ describe BooksController do
         expect(response).to redirect_to :books
       end
 
-      it "redirects to index if user does not own book" do
-        delete :destroy, id: FactoryGirl.create(:book).id
-        expect(response).to redirect_to :books
-      end
-
-      it "does not delete book if user does not own it" do
-        book = FactoryGirl.create(:book)
+      it "raises ActiveRecord::RecordNotFound and does not delete book if user does not own it" do
+        @book = FactoryGirl.create(:book)
         expect do
-          delete :destroy, id: book.id
-        end.not_to change(Book, :count)
+          delete :destroy, id: @book.id
+        end.to raise_error(ActiveRecord::RecordNotFound).and change(Book, :count).by(0)
       end
     end
   end

@@ -61,8 +61,6 @@ class BooksController < ApplicationController
     end
 
     def find_book_for_current_user
-      @book = current_user.books.find_by(id: params[:id])
-      redirect_to books_path if @book.nil?
+      @book = current_user.books.find(params[:id])
     end
-
 end
