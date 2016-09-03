@@ -4,13 +4,12 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [:edit, :update, :destroy]
 
   def new
-    @review = Review.new
+    @review = current_user.reviews.build
   end
 
   def create
-    @review = Review.new(review_params)
+    @review = current_user.reviews.build(review_params)
     @review.book_id = @book.id
-    @review.user_id = current_user.id
 
     if @review.save
       redirect_to book_path(@book)
