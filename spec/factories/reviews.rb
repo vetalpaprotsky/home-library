@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :review do
     rating 1
-    comment "MyText"
+    comment { Faker::Lorem.paragraph }
+    association :user, factory: :user
+    association :book, factory: :book
   end
 end
