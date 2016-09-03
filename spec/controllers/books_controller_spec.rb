@@ -41,6 +41,12 @@ shared_examples "get_show" do
   it "renders the show template" do
     expect(response).to render_template :show
   end
+
+  it "raises ActiveRecord::RecordNotFound if book does not exist" do
+    expect do
+      get :show, id: 9999
+    end.to raise_error(ActiveRecord::RecordNotFound)
+  end
 end
 
 shared_examples "put_update" do
