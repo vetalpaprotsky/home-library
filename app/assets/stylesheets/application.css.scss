@@ -67,16 +67,16 @@ a {
 }
 
 .book {
-	height: 300px;
-	width: 212px;
+	height: 295px;
+	width: 200px;
 	@include background-tile;
   @include book-image;
   margin-bottom: 30px;
 }
 
 .book-show {
-	height: 425px;
-	width: 293px;
+	height: 400px;
+	width: 265px;
   @include background-tile;
   @include book-image;
 }
