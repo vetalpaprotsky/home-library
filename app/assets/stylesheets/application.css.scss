@@ -42,7 +42,6 @@
 body {
 	background-color: #f5f5f5;
 	font-family: "Comic Sans MS", cursive, sans-serif;
-  margin-bottom: 30px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -56,6 +55,15 @@ p {
 
 a {
   text-decoration: none !important;
+}
+
+footer {
+  margin-bottom: 0 !important;
+  margin-top: 20px;
+}
+
+.navbar-custom {
+  background-color: #fff;
 }
 
 .category-header {
