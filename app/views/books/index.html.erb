@@ -5,6 +5,9 @@
 <% if @books.any? %>
   <div class="row">
     <%= render @books %>
+    <div class="book-pagination">
+      <!--pagination-->
+    </div>
   </div>
 <% else %>
   <h2>There're no books in this category</h2>
