@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 #ruby-2.3.0
 
 gem 'rails', '4.2.6'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
@@ -18,6 +17,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
@@ -34,4 +34,8 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
+end
+
+group :production do
+  gem 'pg', '0.18.4'
 end
