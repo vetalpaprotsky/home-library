@@ -5,8 +5,8 @@
 <% if @books.any? %>
   <div class="row">
     <%= render @books %>
-    <div class="book-pagination">
-      <!--pagination-->
+    <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <%= paginate @books %>
     </div>
   </div>
 <% else %>

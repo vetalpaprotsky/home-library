@@ -33,10 +33,9 @@
     <div class="block">
       <h2>Reviews</h2>
       <%= render @book.reviews %>
-    </div>
-
-    <div id="review-pagination">
-      <!--pagination--->
+      <div class="text-center">
+        <%= paginate @book.reviews.page(params[:page]).per(10) %>
+      </div>
     </div>
   </div>
 </div>
