@@ -10,6 +10,7 @@ gem 'paperclip', '~> 5.0'
 gem 'bootstrap-filestyle-rails', '~> 1.2', '>= 1.2.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'kaminari'
 
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -22,6 +23,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'
+  gem 'faker'
 end
 
 group :development do
@@ -30,7 +32,6 @@ group :development do
 end
 
 group :test do
-  gem 'faker'
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'

@@ -24,19 +24,20 @@
       </div>
       <p class="book-description"><%= @book.description %></p>
     </div>
-
     <div class="btn-section">
       <div class="btn-group">
         <%= link_to "Add Review", new_book_review_path(@book), class: "btn btn-default" %>
       </div>
     </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
     <div class="block">
       <h2>Reviews</h2>
       <%= render @book.reviews %>
-    </div>
-
-    <div id="review-pagination">
-      <!--pagination--->
+      <div class="text-center">
+        <%= paginate @book.reviews.page(params[:page]).per(10) %>
+      </div>
     </div>
   </div>
 </div>
