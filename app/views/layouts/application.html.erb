@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-default navbar-custom">
+  <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
         <%= link_to "Book Reveiw", root_path, class: "navbar-brand" %>
@@ -52,9 +52,13 @@
     <%= yield %>
   </div>
 
-  <footer class="navbar navbar-default navbar-custom">
+  <footer class="navbar navbar-default">
     <div class="container">
-
+      <ul class="nav navbar-nav">
+        <li><%= link_to "About", "#" %></li>
+        <li><%= link_to "Help", "#" %></li>
+        <li><%= link_to "Contact", "#" %></li>
+      </ul>
     </div>
   </footer>
 
