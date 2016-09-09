@@ -11,6 +11,7 @@ gem 'bootstrap-filestyle-rails', '~> 1.2', '>= 1.2.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'kaminari'
+gem 'faker'
 
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -21,9 +22,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
   gem 'pry-rails'
-  gem 'faker'
 end
 
 group :development do
@@ -32,6 +31,7 @@ group :development do
 end
 
 group :test do
+  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
