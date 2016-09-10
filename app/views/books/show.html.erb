@@ -36,7 +36,7 @@
       <h2>Reviews</h2>
       <%= render @book.reviews %>
       <div class="text-center">
-        <%= paginate @book.reviews.page(params[:page]).per(10) %>
+        <%= paginate @book.reviews.page(params[:page]).per(10), pagination_class: "pagination-sm" %>
       </div>
     </div>
   </div>
