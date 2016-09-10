@@ -11,9 +11,9 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
-        <%= link_to "Book Reveiw", root_path, class: "navbar-brand" %>
+        <%= link_to "Book Review", root_path, class: "navbar-brand" %>
       </div>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>
@@ -45,20 +45,19 @@
     </div>
   </nav>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%=  alert  %></p>
+  <!--<p class="notice"><#%= notice %></p>
+  <p class="alert"><#%=  alert  %></p>-->
 
   <div class="container">
     <%= yield %>
   </div>
 
-  <footer class="navbar navbar-default">
+  <footer>
     <div class="container">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "About", "#" %></li>
-        <li><%= link_to "Help", "#" %></li>
-        <li><%= link_to "Contact", "#" %></li>
-      </ul>
+      <%= link_to "About", "#" %>
+      <%= link_to "Help", "#" %>
+      <%= link_to "Contact", "#" %>
+      <%= link_to "Feedback", "#" %>
     </div>
   </footer>
 
