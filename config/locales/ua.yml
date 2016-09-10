@@ -1,0 +1,7 @@
+ua:
+  greeting: "Ласкаво просимо до %{site_name}"
+  categories: "Категорії"
+  log_in: "Увійти"
+  log_out: "Вийти"
+  sign_up: "Зареєструватися"
+  add_book: "Добавити книгу"
