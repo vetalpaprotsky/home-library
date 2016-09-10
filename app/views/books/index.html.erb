@@ -1,11 +1,13 @@
 <% if params[:category] %>
   <h1 class="category-header"><%= params[:category] %></h1>
+<% else %>
+  <h1 class="category-header">Welcome to Book Review</h1>
 <% end %>
 
 <% if @books.any? %>
   <div class="row">
     <%= render @books %>
-    <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="home-page-pagination text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <%= paginate @books %>
     </div>
   </div>
