@@ -55,10 +55,12 @@
     </div>
   </nav>
 
-  <!--<p class="notice"><#%= notice %></p>
-  <p class="alert"><#%=  alert  %></p>-->
-
   <div class="container">
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash-#{name}", class: "flash" if msg.is_a?(String) %>
+    <% end %>
+
     <%= yield %>
   </div>
 
