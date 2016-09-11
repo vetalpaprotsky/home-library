@@ -2,12 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
 
-  # Later users will have column "locale" where they store their own languages
-  # and they will be able to choose language in settings
-  # def set_locale
-  #   I18n.locale = current_user.try(:locale) || I18n.default_locale
-  # end
-
   def redirect_to_root
     redirect_to root_path
   end
@@ -19,6 +13,22 @@ class ApplicationController < ActionController::Base
     end
 
     def set_locale
-      I18n.locale = params[:locale] || I18n.default_locale
+      if params[:locale].blank?
+        logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
+        abbr = extract_locale_from_accept_language_header
+        I18n.locale = if Language.find_by(abbr: abbr).nil?
+                        logger.debug "* Unknown Language"
+                        I18n.default_locale
+                      else
+                        abbr
+                      end
+        logger.debug "* Locale set to '#{I18n.locale}'"
+      else
+        I18n.locale = params[:locale]
+      end
+    end
+
+    def extract_locale_from_accept_language_header
+      request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
     end
 end
