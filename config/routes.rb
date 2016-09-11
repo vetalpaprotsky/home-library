@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :books do
       resources :reviews, except: [:index, :show], shallow: true
     end
+    get '/change_locale' => 'locales#change_locale'
   end
 end
