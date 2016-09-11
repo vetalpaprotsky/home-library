@@ -1,5 +1,5 @@
 ua:
-  greeting: "Ласкаво просимо до %{site_name}"
+  greeting: "Ласкаво просимо в %{site_name}"
   categories: "Категорії"
   log_in: "Увійти"
   log_out: "Вийти"
@@ -9,3 +9,4 @@ ua:
   contacts: "Контакти"
   help: "Допомога"
   feedback: "Залишити відгук"
+  language: "Мова"

@@ -1,0 +1,12 @@
+ru:
+  greeting: "Добро пожаловать в %{site_name}"
+  categories: "Категории"
+  log_in: "Войти"
+  log_out: "Выйти"
+  sign_up: "Зарегистрироваться"
+  add_book: "Добавить книгу"
+  about: "О нас"
+  contacts: "Контакты"
+  help: "Помощь"
+  feedback: "Оставить отзыв"
+  language: "Язык"
