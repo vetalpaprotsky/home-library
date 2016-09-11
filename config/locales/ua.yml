@@ -1,5 +1,4 @@
 ua:
-  greeting: "Ласкаво просимо в %{site_name}"
   categories: "Категорії"
   log_in: "Увійти"
   log_out: "Вийти"

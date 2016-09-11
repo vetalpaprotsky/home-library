@@ -1,5 +1,4 @@
 ru:
-  greeting: "Добро пожаловать в %{site_name}"
   categories: "Категории"
   log_in: "Войти"
   log_out: "Выйти"
