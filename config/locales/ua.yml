@@ -10,3 +10,9 @@ ua:
   help: "Допомога"
   feedback: "Залишити відгук"
   language: "Мова"
+
+  pagination:
+    first: "Перша"
+    last: "Остання"
+    next: "Наступна"
+    previous: "Попередня"

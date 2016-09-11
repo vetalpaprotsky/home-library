@@ -10,3 +10,9 @@ ru:
   help: "Помощь"
   feedback: "Оставить отзыв"
   language: "Язык"
+
+  pagination:
+    first: "Первая"
+    last: "Последняя"
+    next: "Следующая"
+    previous: "Предыдущая"

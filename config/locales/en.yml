@@ -10,3 +10,9 @@ en:
   help: "Help"
   feedback: "Feedback"
   language: "Language"
+
+  pagination:
+    first: "First"
+    last: "Last"
+    next: "Next"
+    previous: "Previous"
