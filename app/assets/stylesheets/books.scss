@@ -1,3 +1,38 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin background-tile {
+	box-sizing: border-box;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px 1px #ccc;
+  padding: 15px;
+}
+
+@mixin book-image {
+  display: block;
+  margin: auto;
+  padding: 0;
+}
+
+
+
+.book {
+	height: 295px;
+	width: 200px;
+	@include background-tile;
+  @include book-image;
+  margin-bottom: 30px;
+}
+
+.book-show {
+	height: 400px;
+	width: 265px;
+  @include background-tile;
+  @include book-image;
+}
+
+.block {
+  @include background-tile;
+}

@@ -1,5 +1,4 @@
 en:
-  greeting: "Welcome to %{site_name}"
   categories: "Categories"
   log_in: "Log in"
   log_out: "Log out"
@@ -10,3 +9,9 @@ en:
   help: "Help"
   feedback: "Feedback"
   language: "Language"
+
+  pagination:
+    first: "First"
+    last: "Last"
+    next: "Next"
+    previous: "Previous"
