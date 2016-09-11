@@ -13,24 +13,17 @@
       <div class="navbar-header">
         <%= link_to "Book Review", root_path, class: "navbar-brand" %>
       </div>
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Log in", new_user_session_path %></li>
-          <li><%= link_to "Sign up", new_user_registration_path %></li>
-        <% end %>
+
+      <ul class="nav navbar-nav navbar-keft">
+        <li><%= link_to t('add_book'), new_book_path %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-            Categories <span class="caret"></span>
+            <%= t('categories') %> <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">
-            <!--<li class="<%= 'active' if params[:category].blank? && (current_page?(root_path) || current_page?(books_path)) %>">
-              <%= link_to "All", root_path, class: "link" %>
-            </li>-->
             <% Category.all.each do |category| %>
               <li class="<%= 'active' if params[:category] == category.name %>">
                 <%= link_to category.name, books_path(category: category.name), class: "link" %>
@@ -38,8 +31,25 @@
             <% end %>
           </ul>
         </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <%= t('language') %> <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <% Language.all.each do |language| %>
+              <li class="<%= 'active' if params[:locale] == language.abbr %>">
+                <%= link_to language.name, change_locale_path(path: request.original_fullpath, new_locale: language.abbr), class: "link" %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+
         <% if user_signed_in? %>
-          <li><%= link_to "Add Book", new_book_path %></li>
+          <li><%= link_to t('log_out'), destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to t('log_in'), new_user_session_path %></li>
+          <li><%= link_to t('sign_up'), new_user_registration_path %></li>
         <% end %>
       </ul>
     </div>
@@ -54,10 +64,10 @@
 
   <footer>
     <div class="container">
-      <%= link_to "About", "#" %>
-      <%= link_to "Help", "#" %>
-      <%= link_to "Contact", "#" %>
-      <%= link_to "Feedback", "#" %>
+      <%= link_to t('about'), "#" %>
+      <%= link_to t('help'), "#" %>
+      <%= link_to t('contacts'), "#" %>
+      <%= link_to t('feedback'), "#" %>
     </div>
   </footer>
 

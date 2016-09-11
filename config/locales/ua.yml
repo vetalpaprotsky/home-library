@@ -1,0 +1,12 @@
+ua:
+  greeting: "Ласкаво просимо в %{site_name}"
+  categories: "Категорії"
+  log_in: "Увійти"
+  log_out: "Вийти"
+  sign_up: "Зареєструватися"
+  add_book: "Добавити книгу"
+  about: "Про нас"
+  contacts: "Контакти"
+  help: "Допомога"
+  feedback: "Залишити відгук"
+  language: "Мова"
