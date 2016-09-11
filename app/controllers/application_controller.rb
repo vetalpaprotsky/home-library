@@ -3,11 +3,16 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    if params[:locale].blank?
+      I18n.locale = I18n.default_locale
+      redirect_to root_path
+    else
+      I18n.locale = params[:locale]
+    end
   end
 
-  # later users will have column "language" where they store their own languages
-  # they will be able to choose language in settings
+  # Later users will have column "locale" where they store their own languages
+  # and they will be able to choose them in settings
   # def set_locale
   #   I18n.locale = current_user.try(:locale) || I18n.default_locale
   # end
