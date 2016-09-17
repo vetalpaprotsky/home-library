@@ -39,7 +39,7 @@
           <ul class="dropdown-menu" role="menu">
             <% Language.all.each do |language| %>
               <li class="<%= 'active' if params[:locale] == language.abbr %>">
-                <%= link_to language.name, change_locale_path(path: request.original_fullpath, new_locale: language.abbr), class: "link" %>
+                <%= link_to language.name, change_locale_path(language_abbr: language.abbr), class: "link" %>
               </li>
             <% end %>
           </ul>
