@@ -1,10 +1,8 @@
 ru:
   categories: "Категории"
-  log_in: "Войти"
-  loging_in: "Вход"
-  log_out: "Выйти"
-  sign_up: "Зарегистрироваться"
+  signing_in: "Вход"
   signing_up: "Регистрация"
+  sign_out: "Выйти"
   add_book: "Добавить книгу"
   about: "О нас"
   contacts: "Контакты"
@@ -17,23 +15,3 @@ ru:
     last: "Последняя"
     next: "Следующая"
     previous: "Предыдущая"
-
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            email:
-              blank: "Не может быть пустым"
-              invalid: "Некорректный адрес"
-            password:
-              blank: "Не может быть пустым"
-              too_short: "Слишком короткий (минимум %{count} символов)"
-              too_long: "Слишком долгий (максимум %{count} символов)"
-            password_confirmation:
-              confirmation: "Не совпадает"
-    attributes:
-      user:
-        password: "Пароль"
-        email: "Е-mail"
-        password_confirmation: "Подтверждение пароля"

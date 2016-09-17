@@ -1,10 +1,8 @@
 ua:
   categories: "Категорії"
-  log_in: "Увійти"
-  loging_in: "Вхід"
-  log_out: "Вийти"
-  sign_up: "Зареєструватися"
+  signing_in: "Вхід"
   signing_up: "Реєстрація"
+  sign_out: "Вийти"
   add_book: "Добавити книгу"
   about: "Про нас"
   contacts: "Контакти"
@@ -17,23 +15,3 @@ ua:
     last: "Остання"
     next: "Наступна"
     previous: "Попередня"
-
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            email:
-              blank: "Не може бути порожнім"
-              invalid: "Некоректний адрес"
-            password:
-              blank: "Не може бути порожнім"
-              too_short: "Занадто короткий (мінімум %{count} символів)"
-              too_long: "Занадто довгий (максимум %{count} символів)"
-            password_confirmation:
-              confirmation: "Не співпадає"
-    attributes:
-      user:
-        password: "Пароль"
-        email: "Е-mail"
-        password_confirmation: "Підтвердження пароля"

@@ -1,10 +1,8 @@
 en:
   categories: "Categories"
-  log_in: "Log in"
-  loging_in: "Log in"
-  log_out: "Log out"
-  sign_up: "Sign up"
+  signing_in: "Sing in"
   signing_up: "Sign up"
+  sign_out: "Sign out"
   add_book: "Add book"
   about: "About"
   contacts: "Contacts"
