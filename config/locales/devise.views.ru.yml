@@ -5,10 +5,8 @@ ru:
         user:
           attributes:
             email:
-              blank: "Не может быть пустым"
               invalid: "Некорректный адрес"
             password:
-              blank: "Не может быть пустым"
               too_short: "Слишком короткий (минимум %{count} символов)"
               too_long: "Слишком долгий (максимум %{count} символов)"
             password_confirmation:

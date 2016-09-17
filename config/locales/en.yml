@@ -15,3 +15,8 @@ en:
     last: "Last"
     next: "Next"
     previous: "Previous"
+
+  activerecord:
+    attributes:
+      book:
+        book_img: "Image"

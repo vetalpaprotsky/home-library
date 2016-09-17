@@ -1,8 +1,15 @@
 <%= simple_form_for @book, :html => {:multipart => true} do |f| %>
   <%= f.association :category, as: :select %>
-  <%= f.input :book_img, as: :file, label: "Image", input_html: { class: "filestyle btn-custom"} %>
+  <%= f.input :book_img, as: :file, input_html: { class: "filestyle btn-custom" } %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :author %>
   <%= f.button :submit, class: "btn-custom" %>
 <% end %>
+
+<script type="text/javascript">
+  $(function() {
+    $('span.buttonText').first().remove()
+    $('div.bootstrap-filestyle > input').first().attr('placeholder', 'jpg, jpeg, png')
+  });
+</script>

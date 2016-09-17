@@ -5,10 +5,8 @@ ua:
         user:
           attributes:
             email:
-              blank: "Не може бути порожнім"
               invalid: "Некоректний адрес"
             password:
-              blank: "Не може бути порожнім"
               too_short: "Занадто короткий (мінімум %{count} символів)"
               too_long: "Занадто довгий (максимум %{count} символів)"
             password_confirmation:
