@@ -12,13 +12,22 @@ ru:
   edit: "Редактировать"
   delete: "Удалить"
   are_you_sure?: "Вы уверены?"
+  author: "Автор"
 
   new_book_title: "Добавление новой книги"
   edit_book_title: "Редактирование книги"
 
+  comments: "Комментарии"
+  add_comment: "Добавить комментарий"
+  new_comment_title: "Добавление нового комментария"
+  edit_comment_title: "Редактирование комментария"
+
   helpers:
     submit:
       book:
+        create: "Сохранить"
+        update: "Сохранить"
+      comment:
         create: "Сохранить"
         update: "Сохранить"
 
@@ -51,3 +60,5 @@ ru:
         author: "Автор"
         description: "Описание"
         book_img: "Фото"
+      comment:
+        text: "Текст"

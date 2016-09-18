@@ -12,13 +12,22 @@ en:
   edit: "Edit"
   delete: "Delete"
   are_you_sure?: "Are you sure?"
+  author: "Author"
 
   new_book_title: "Add new book"
   edit_book_title: "Edit book"
 
+  comments: "Comments"
+  add_comment: "Add comment"
+  new_comment_title: "Add new comment"
+  edit_comment_title: "Edit comment"
+
   helpers:
     submit:
       book:
+        create: "Save"
+        update: "Save"
+      comment:
         create: "Save"
         update: "Save"
 
