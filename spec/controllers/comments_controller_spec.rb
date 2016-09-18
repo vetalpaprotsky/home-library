@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-shared_examples "post create" do
+shared_examples "post create comment" do
 
   it "assigns comment to @comment that belongs to user" do
     post :create, book_id: @book.id, comment: @comment_attr
@@ -18,7 +18,7 @@ shared_examples "post create" do
   end
 end
 
-shared_examples "put update" do
+shared_examples "put update comment" do
   it "assigns comment to @comment that belongs to user" do
     put :update, id: @comment.id, comment: @comment_attr
     expect(assigns(:comment).user).to eq @user
@@ -132,7 +132,7 @@ describe CommentsController do
           @book = FactoryGirl.create(:book)
         end
 
-        include_examples "post create"
+        include_examples "post create comment"
 
         it "creates a new comment that belongs to user" do
           expect do
@@ -165,7 +165,7 @@ describe CommentsController do
           @book = FactoryGirl.create(:book)
         end
 
-        include_examples "post create"
+        include_examples "post create comment"
 
         it "does not create a new comment" do
           expect do
@@ -225,7 +225,7 @@ describe CommentsController do
           @comment_attr = FactoryGirl.attributes_for(:comment)
         end
 
-        include_examples "put update"
+        include_examples "put update comment"
 
         it "changes comment attributes" do
           put :update, id: @comment.id, comment: @comment_attr
@@ -247,7 +247,7 @@ describe CommentsController do
           @comment_attr = FactoryGirl.attributes_for(:invalid_comment)
         end
 
-        include_examples "put update"
+        include_examples "put update comment"
 
         it "does not change comment attributes" do
           put :update, id: @comment.id, comment: @comment_attr

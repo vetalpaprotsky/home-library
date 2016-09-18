@@ -26,7 +26,7 @@ shared_examples "get index" do
   end
 end
 
-shared_examples "get show" do
+shared_examples "get show book" do
 
   # TODO: write tests for texts which are rendered on book show page
 
@@ -51,7 +51,7 @@ shared_examples "get show" do
   end
 end
 
-shared_examples "post create" do
+shared_examples "post create book" do
 
   it "assigns book to @book that belongs to user" do
     post :create, book: @book_attr
@@ -84,7 +84,7 @@ describe BooksController do
 
     describe "GET #show" do
 
-      include_examples "get show"
+      include_examples "get show book"
     end
 
     describe "GET #new" do
@@ -145,7 +145,7 @@ describe BooksController do
 
     describe "GET #show" do
 
-      include_examples "get show"
+      include_examples "get show book"
     end
 
     describe "GET #new" do
@@ -170,7 +170,7 @@ describe BooksController do
                        category_id: FactoryGirl.create(:category).id)
         end
 
-        include_examples "post create"
+        include_examples "post create book"
 
         it "creates a new book that belongs to user" do
           expect do
@@ -191,7 +191,7 @@ describe BooksController do
                        category_id: FactoryGirl.create(:category).id)
         end
 
-        include_examples "post create"
+        include_examples "post create book"
 
         it "does not create a new book" do
           expect do
