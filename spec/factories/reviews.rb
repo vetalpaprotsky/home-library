@@ -1,11 +1,11 @@
 FactoryGirl.define do
-  factory :review do
-    comment { Faker::Lorem.paragraph }
+  factory :comment do
+    text { Faker::Lorem.paragraph }
     association :user, factory: :user
     association :book, factory: :book
   end
 
-  factory :invalid_review, parent: :review do
-    comment nil
+  factory :invalid_comment, parent: :comment do
+    text nil
   end
 end

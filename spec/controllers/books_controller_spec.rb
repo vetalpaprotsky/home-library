@@ -28,7 +28,7 @@ end
 
 shared_examples "get show" do
 
-  # TODO: write tests for comments which are rendered on book show page
+  # TODO: write tests for texts which are rendered on book show page
 
   before { @book = FactoryGirl.create(:book) }
 
