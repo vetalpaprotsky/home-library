@@ -9,13 +9,14 @@ ua:
   help: "Допомога"
   feedback: "Залишити відгук"
   language: "Мова"
-  new_book: "Добавлення книги"
+  new_book: "Добавлення нової книги"
+  edit_book: "Редагування книги"
 
   helpers:
     submit:
       book:
-        create: "Добавити"
-        update: "Оновити"
+        create: "Зберегти"
+        update: "Зберегти"
 
   pagination:
     first: "Перша"
