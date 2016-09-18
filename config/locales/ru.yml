@@ -9,8 +9,12 @@ ru:
   help: "Помощь"
   feedback: "Оставить отзыв"
   language: "Язык"
-  new_book: "Добавление новой книги"
-  edit_book: "Редактирование книги"
+  edit: "Редактировать"
+  delete: "Удалить"
+  are_you_sure?: "Вы уверены?"
+
+  new_book_title: "Добавление новой книги"
+  edit_book_title: "Редактирование книги"
 
   helpers:
     submit:

@@ -9,8 +9,12 @@ ua:
   help: "Допомога"
   feedback: "Залишити відгук"
   language: "Мова"
-  new_book: "Добавлення нової книги"
-  edit_book: "Редагування книги"
+  edit: "Редагувати"
+  delete: "Видалити"
+  are_you_sure?: "Ви впевнені?"
+
+  new_book_title: "Добавлення нової книги"
+  edit_book_title: "Редагування книги"
 
   helpers:
     submit:

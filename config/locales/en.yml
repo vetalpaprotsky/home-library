@@ -9,8 +9,12 @@ en:
   help: "Help"
   feedback: "Feedback"
   language: "Language"
-  new_book: "Add new book"
-  edit_book: "Edit book"
+  edit: "Edit"
+  delete: "Delete"
+  are_you_sure?: "Are you sure?"
+
+  new_book_title: "Add new book"
+  edit_book_title: "Edit book"
 
   helpers:
     submit:
