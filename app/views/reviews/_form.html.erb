@@ -1,12 +1,12 @@
 <%= simple_form_for [@book, @review] do |f| %>
-  <div id="rating-form" data-score=<%= @review.rating %>>
+  <!-- <div id="rating-form" data-score=<#%= @review.rating %>>
     <label>Rating</label>
-  </div>
+  </div> -->
   <%= f.input :comment %>
   <%= f.button :submit, class: "btn-custom" %>
 <% end %>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $('#rating-form').raty({
     path: '/assets/',
     scoreName: 'review[rating]',
@@ -14,4 +14,4 @@
       return $(this).attr('data-score')
     }
   });
-</script>
+</script> -->

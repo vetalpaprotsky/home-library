@@ -19,7 +19,7 @@
       <h4><span>by </span><%= @book.author %></h4>
       <div class="average-review-rating-section">
         <span class="average-review-rating" data-score="<%= @average_rating %>"></span>
-        <span class="number-of-reviews">based on <%= pluralize(@book.reviews.count, "review") %></span>
+        <span class="number-of-reviews">votes: ...</span>
       </div>
       <p class="book-description"><%= @book.description %></p>
     </div>
@@ -35,6 +35,7 @@
       <h2>Reviews</h2>
       <%= render @book.reviews %>
       <div class="text-center">
+        <%# TODO: assign comments to variable in controller action %>
         <%= paginate @book.reviews.page(params[:page]).per(10), pagination_class: "pagination-sm" %>
       </div>
     </div>
