@@ -1,0 +1,14 @@
+<div class="comment">
+  <div class="comment-section">
+    <%= link_to comment.user.email, "#" %>
+  </div>
+
+  <p><%= comment.text %></p>
+
+  <% if current_user == comment.user %>
+    <div class="comment-links">
+      <%= link_to 'Edit', edit_comment_path(comment) %>
+      <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% end %>
+</div>
