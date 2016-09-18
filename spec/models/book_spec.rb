@@ -18,16 +18,6 @@ describe Book do
     it { should_not be_valid }
   end
 
-  describe "when title has length less than 2 characters" do
-    before { @book.title = 'a' }
-    it { should_not be_valid }
-  end
-
-  describe "when title has length more than 255 characters" do
-    before { @book.title = "#{'a' * 256}" }
-    it { should_not be_valid }
-  end
-
   describe "when description is not present" do
     before { @book.description = nil }
     it { should_not be_valid }
@@ -40,16 +30,6 @@ describe Book do
 
   describe "when author is not present" do
     before { @book.author = nil }
-    it { should_not be_valid }
-  end
-
-  describe "when author has length less than 2 characters" do
-    before { @book.author = 'a' }
-    it { should_not be_valid }
-  end
-
-  describe "when author has length more than 255 characters" do
-    before { @book.author = "#{'a' * 256}" }
     it { should_not be_valid }
   end
 

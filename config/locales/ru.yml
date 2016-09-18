@@ -1,17 +1,53 @@
 ru:
   categories: "Категории"
-  log_in: "Войти"
-  log_out: "Выйти"
-  sign_up: "Зарегистрироваться"
+  signing_in: "Вход"
+  signing_up: "Регистрация"
+  sign_out: "Выйти"
   add_book: "Добавить книгу"
   about: "О нас"
   contacts: "Контакты"
   help: "Помощь"
   feedback: "Оставить отзыв"
   language: "Язык"
+  edit: "Редактировать"
+  delete: "Удалить"
+  are_you_sure?: "Вы уверены?"
+
+  new_book_title: "Добавление новой книги"
+  edit_book_title: "Редактирование книги"
+
+  helpers:
+    submit:
+      book:
+        create: "Сохранить"
+        update: "Сохранить"
 
   pagination:
     first: "Первая"
     last: "Последняя"
     next: "Следующая"
     previous: "Предыдущая"
+
+  activerecord:
+    errors:
+      models:
+        book:
+          attributes:
+            category_id:
+              blank: "Не может быть пустая"
+            description:
+              too_short: "Слишком короткий (минимум %{count} символов)"
+            book_img:
+              less_than: "Максимальный размер %{max}"
+              spoofed_media_type: "Формат должен быть jpg, jpeg или png"
+            book_img_content_type:
+              invalid: "Формат должен быть jpg, jpeg или png"
+      messages:
+        blank: "Не может быть пустым"
+    attributes:
+      book:
+        category: "Категория"
+        title: "Название"
+        author: "Автор"
+        description: "Описание"
+        book_img: "Фото"

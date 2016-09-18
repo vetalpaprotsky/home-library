@@ -1,17 +1,55 @@
 ua:
   categories: "Категорії"
-  log_in: "Увійти"
-  log_out: "Вийти"
-  sign_up: "Зареєструватися"
+  signing_in: "Вхід"
+  signing_up: "Реєстрація"
+  sign_out: "Вийти"
   add_book: "Добавити книгу"
   about: "Про нас"
   contacts: "Контакти"
   help: "Допомога"
   feedback: "Залишити відгук"
   language: "Мова"
+  edit: "Редагувати"
+  delete: "Видалити"
+  are_you_sure?: "Ви впевнені?"
+
+  new_book_title: "Добавлення нової книги"
+  edit_book_title: "Редагування книги"
+
+  helpers:
+    submit:
+      book:
+        create: "Зберегти"
+        update: "Зберегти"
 
   pagination:
     first: "Перша"
     last: "Остання"
     next: "Наступна"
     previous: "Попередня"
+
+  activerecord:
+    errors:
+      models:
+        book:
+          attributes:
+            category_id:
+              blank: "Не може бути порожня"
+            title:
+              blank: "Не може бути порожня"
+            description:
+              too_short: "Занадто короткий (мінімум %{count} символів)"
+            book_img:
+              less_than: "Максимальний розмір %{max}"
+              spoofed_media_type: "Формат має бути jpg, jpeg або png"
+            book_img_content_type:
+              invalid: "Формат має бути jpg, jpeg або png"
+      messages:
+        blank: "Не може бути порожнім"
+    attributes:
+      book:
+        category: "Категорія"
+        title: "Назва"
+        author: "Автор"
+        description: "Опис"
+        book_img: "Фото"

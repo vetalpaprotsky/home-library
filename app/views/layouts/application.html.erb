@@ -39,17 +39,17 @@
           <ul class="dropdown-menu" role="menu">
             <% Language.all.each do |language| %>
               <li class="<%= 'active' if params[:locale] == language.abbr %>">
-                <%= link_to language.name, change_locale_path(path: request.original_fullpath, new_locale: language.abbr), class: "link" %>
+                <%= link_to language.name, change_locale_path(language_abbr: language.abbr), class: "link" %>
               </li>
             <% end %>
           </ul>
         </li>
 
         <% if user_signed_in? %>
-          <li><%= link_to t('log_out'), destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to t('sign_out'), destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to t('log_in'), new_user_session_path %></li>
-          <li><%= link_to t('sign_up'), new_user_registration_path %></li>
+          <li><%= link_to t('devise.sessions.new.sign_in'), new_user_session_path %></li>
+          <li><%= link_to t('devise.registrations.new.sign_up'), new_user_registration_path %></li>
         <% end %>
       </ul>
     </div>
