@@ -222,7 +222,7 @@ describe ReviewsController do
         before do
           @book = FactoryGirl.create(:book)
           @review = FactoryGirl.create(:review, book_id: @book.id, user_id: @user.id)
-          @review_attr = FactoryGirl.attributes_for(:review, rating: 2)
+          @review_attr = FactoryGirl.attributes_for(:review)
         end
 
         include_examples "put update"
@@ -231,7 +231,6 @@ describe ReviewsController do
           put :update, id: @review.id, review: @review_attr
           @review.reload
           expect(@review.comment).to eq @review_attr[:comment]
-          expect(@review.rating).to eq @review_attr[:rating]
         end
 
         it "redirects to book show" do
@@ -254,7 +253,6 @@ describe ReviewsController do
           put :update, id: @review.id, review: @review_attr
           @review.reload
           expect(@review.comment).not_to eq @review_attr[:comment]
-          expect(@review.rating).not_to eq @review_attr[:rating]
         end
 
         it "renders edit template" do

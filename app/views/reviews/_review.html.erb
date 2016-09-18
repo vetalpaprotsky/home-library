@@ -1,13 +1,12 @@
-<div class="review">
-  <div class="review-rating-section">
-    <!-- <span class="review-rating" data-score="<#%= review.rating %>"></span> -->
-    <%= link_to review.user.email, "#", class: "commenter" %>
+<div class="comment">
+  <div class="comment-section">
+    <%= link_to review.user.email, "#" %>
   </div>
 
   <p><%= review.comment %></p>
 
   <% if current_user == review.user %>
-    <div class="review-comment-links-section">
+    <div class="comment-links">
       <%= link_to 'Edit', edit_review_path(review) %>
       <%= link_to 'Delete', review_path(review), method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
