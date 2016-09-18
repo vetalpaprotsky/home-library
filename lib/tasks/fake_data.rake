@@ -1,4 +1,3 @@
-# TODO: change task according to new models
 namespace :fake_data do
   desc "Fill database with fake data"
   task populate: :environment do

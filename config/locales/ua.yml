@@ -12,13 +12,22 @@ ua:
   edit: "Редагувати"
   delete: "Видалити"
   are_you_sure?: "Ви впевнені?"
+  author: "Автор"
 
   new_book_title: "Добавлення нової книги"
   edit_book_title: "Редагування книги"
 
+  comments: "Коментарі"
+  add_comment: "Добавити коментар"
+  new_comment_title: "Добавлення нового коментаря"
+  edit_comment_title: "Редагування коментаря"
+
   helpers:
     submit:
       book:
+        create: "Зберегти"
+        update: "Зберегти"
+      comment:
         create: "Зберегти"
         update: "Зберегти"
 
@@ -53,3 +62,5 @@ ua:
         author: "Автор"
         description: "Опис"
         book_img: "Фото"
+      comment:
+        text: "Текст"
