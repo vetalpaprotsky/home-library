@@ -13,6 +13,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @comments = @book.comments.page(params[:page]).per(10)
   end
 
   def new
