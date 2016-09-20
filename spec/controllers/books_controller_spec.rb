@@ -2,19 +2,19 @@ require 'rails_helper'
 
 shared_examples "get index" do
 
-  before { 13.times { FactoryGirl.create(:book) } }
+  before { FactoryGirl.create_list(:book, 13) }
 
   context "without page parameter" do
 
     context "without category" do
 
-      before { get :index }
-
       it "populates an array of books to @books ordered by created_at desc" do
+        get :index
         expect(assigns :books).to eq Book.order("created_at DESC").page(1).per(12)
       end
 
-      it "populates an array with 12 books " do
+      it "populates @books array with 12 books " do
+        get :index
         expect((assigns :books).count).to eq 12
       end
     end
@@ -23,15 +23,16 @@ shared_examples "get index" do
 
       before do
         @category = FactoryGirl.create(:category, name: 'my_category')
-        13.times { FactoryGirl.create(:book, category_id: @category.id) }
-        get :index, category: @category.name
+        FactoryGirl.create_list(:book, 13, category_id: @category.id)
       end
 
       it "populates an array of books to @books ordered by created_at desc" do
+        get :index, category: @category.name
         expect(assigns :books).to eq Book.where(category_id: @category.id).order("created_at DESC").page(1).per(12)
       end
 
-      it "populates an array with 12 books" do
+      it "populates @books array with 12 books" do
+        get :index, category: @category.name
         expect((assigns :books).count).to eq 12
       end
     end
@@ -39,15 +40,17 @@ shared_examples "get index" do
 
   context "with page parameter 2" do
 
+    before { @page = 2 }
+
     context "without category" do
 
-      before { get :index, page: 2 }
-
       it "populates an array of books to @books ordered by created_at desc" do
-        expect(assigns :books).to eq Book.order("created_at DESC").page(2).per(12)
+        get :index, page: @page
+        expect(assigns :books).to eq Book.order("created_at DESC").page(@page).per(12)
       end
 
-      it "populates an array with 1 book " do
+      it "populates @books array with 1 book" do
+        get :index, page: @page
         expect((assigns :books).count).to eq 1
       end
     end
@@ -56,15 +59,16 @@ shared_examples "get index" do
 
       before do
         @category = FactoryGirl.create(:category, name: 'my_category')
-        13.times { FactoryGirl.create(:book, category_id: @category.id) }
-        get :index, page: 2, category: @category.name
+        FactoryGirl.create_list(:book, 13, category_id: @category.id)
       end
 
       it "populates an array of books to @books ordered by created_at desc" do
-        expect(assigns :books).to eq Book.where(category_id: @category.id).order("created_at DESC").page(2).per(12)
+        get :index, page: @page, category: @category.name
+        expect(assigns :books).to eq Book.where(category_id: @category.id).order("created_at DESC").page(@page).per(12)
       end
 
-      it "populates an array with 1 book" do
+      it "populates @books array with 1 book" do
+        get :index, page: @page, category: @category.name
         expect((assigns :books).count).to eq 1
       end
     end
@@ -78,9 +82,38 @@ end
 
 shared_examples "get show book" do
 
-  # TODO: write tests for texts which are rendered on book show page
+  before do
+    @book = FactoryGirl.create(:book)
+    FactoryGirl.create_list(:comment, 11, book: @book)
+  end
 
-  before { @book = FactoryGirl.create(:book) }
+  context "without page parameter" do
+
+    it "populates an array of comments to @comments which belongs to @book" do
+      get :show, id: @book.id
+      expect(assigns :comments).to eq @book.comments.page(1).per(10)
+    end
+
+    it "populates @comments array with 10 comments" do
+      get :show, id: @book.id
+      expect((assigns :comments).count).to eq 10
+    end
+  end
+
+  context "with page parameter 2" do
+
+    before { @page = 2 }
+
+    it "populates an array of comments to @comments which belongs to @book" do
+      get :show, id: @book.id, page: @page
+      expect(assigns :comments).to eq @book.comments.page(@page).per(10)
+    end
+
+    it "populates @comments array with 1 comment" do
+      get :show, id: @book.id, page: @page
+      expect((assigns :comments).count).to eq 1
+    end
+  end
 
   it "assigns book to @book" do
     get :show, id: @book.id
