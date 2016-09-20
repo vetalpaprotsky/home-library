@@ -2,23 +2,73 @@ require 'rails_helper'
 
 shared_examples "get index" do
 
-  # TODO: write tests with pagination
+  before { 13.times { FactoryGirl.create(:book) } }
 
-  # it "populates an array of books to @books ordered by created_at desc" do
-  #   5.times { FactoryGirl.create(:book) }
-  #   get :index
-  #   expect(assigns :books).to eq Book.order("created_at DESC")
-  # end
-  #
-  # it "populates an array of books to @books ordered by created_at desc with certain category" do
-  #   category = FactoryGirl.create(:category)
-  #   3.times do
-  #     FactoryGirl.create(:book)
-  #     FactoryGirl.create(:book, category_id: category.id)
-  #   end
-  #   get :index, category: category.name
-  #   expect(assigns :books).to eq Book.where(category_id: category.id).order("created_at DESC")
-  # end
+  context "without page parameter" do
+
+    context "without category" do
+
+      before { get :index }
+
+      it "populates an array of books to @books ordered by created_at desc" do
+        expect(assigns :books).to eq Book.order("created_at DESC").page(1).per(12)
+      end
+
+      it "populates an array with 12 books " do
+        expect((assigns :books).count).to eq 12
+      end
+    end
+
+    context "with category" do
+
+      before do
+        @category = FactoryGirl.create(:category, name: 'my_category')
+        13.times { FactoryGirl.create(:book, category_id: @category.id) }
+        get :index, category: @category.name
+      end
+
+      it "populates an array of books to @books ordered by created_at desc" do
+        expect(assigns :books).to eq Book.where(category_id: @category.id).order("created_at DESC").page(1).per(12)
+      end
+
+      it "populates an array with 12 books" do
+        expect((assigns :books).count).to eq 12
+      end
+    end
+  end
+
+  context "with page parameter 2" do
+
+    context "without category" do
+
+      before { get :index, page: 2 }
+
+      it "populates an array of books to @books ordered by created_at desc" do
+        expect(assigns :books).to eq Book.order("created_at DESC").page(2).per(12)
+      end
+
+      it "populates an array with 1 book " do
+        expect((assigns :books).count).to eq 1
+      end
+    end
+
+    context "with category" do
+
+      before do
+        @category = FactoryGirl.create(:category, name: 'my_category')
+        13.times { FactoryGirl.create(:book, category_id: @category.id) }
+        get :index, page: 2, category: @category.name
+      end
+
+      it "populates an array of books to @books ordered by created_at desc" do
+        expect(assigns :books).to eq Book.where(category_id: @category.id).order("created_at DESC").page(2).per(12)
+      end
+
+      it "populates an array with 1 book" do
+        expect((assigns :books).count).to eq 1
+      end
+    end
+  end
 
   it "renders index template" do
     get :index
