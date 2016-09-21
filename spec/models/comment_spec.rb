@@ -24,4 +24,12 @@ describe Comment do
     before { @comment.user_id = nil }
     it { should_not be_valid }
   end
+
+  describe "default scope" do
+    it "is order by created_at desc" do
+      comments = [@comment]
+      5.times { comments << FactoryGirl.create(:comment) }
+      expect(Comment.all).to eq comments.sort { |a, b|  b.created_at <=> a.created_at }
+    end
+  end
 end
