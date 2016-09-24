@@ -10,7 +10,7 @@
           <%= link_to t('delete'), book_path(@book), method: :delete, data: { confirm: t('are_you_sure?') }, class: "btn btn-default" %>
         <% else %>
           <div class='book-evaluation'><%= t('evaluation') %></div>
-          <div id="evaluation"></div>
+          <span id="evaluation"></span>
         <% end %>
       </div>
     </div>
@@ -20,12 +20,11 @@
     <div class="block">
       <h3><%= @book.title %></h3>
       <h4 class="author"><%= @book.author %></h4>
-      <div class="average-book-rating-section">
-
-        <%# TODO: show book rating using stars %>
-
-        <!-- <span class="average-book-rating" data-score="<%= @average_rating %>"></span> -->
-        <!-- <span class="number-of-evaluations">Votes: ...</span> -->
+      <div class="average-book-evaluation-section">
+        <span id="average-book-evaluation"></span>
+        <span class="number-of-evaluations">
+          <%= t('number_of_evaluations') %>: <%= @number_of_evaluations %>
+        </span>
       </div>
       <p class="book-description"><%= @book.description %></p>
     </div>
@@ -48,13 +47,11 @@
 </div>
 
 <script type="text/javascript">
-  // $('.average-book-rating').raty({
-  //   readOnly: true,
-  //   path: '/assets/',
-  //   score: function() {
-  //     return $(this).attr('data-score')
-  //   }
-  // });
+  $('#average-book-evaluation').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: <%= @average_evaluation %>
+  });
 
   $('#evaluation').raty({
     size: 24,
