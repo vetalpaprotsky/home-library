@@ -28,8 +28,8 @@ html {
 
 body {
 	background-color: #f5f5f5;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-  margin-bottom: 90px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+  margin-bottom: 100px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -37,12 +37,12 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 300;
 }
 
-p {
+p, a {
   font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 footer {
@@ -54,10 +54,28 @@ footer {
 }
 
 footer a {
-  padding: 15px 20px;
-  display: inline-block;
   width: 100%;
   text-align: center;
+  white-space: nowrap;
+}
+
+footer .container { text-align: center; }
+
+footer img { margin: 10px 0; }
+
+.social-link:hover, .social-link:focus { text-decoration: none; }
+
+.footer-link-section { margin: 20px 0; }
+
+@media all and (max-width: 767px) {
+  body { margin-bottom: 160px; }
+
+  footer img { margin: 10px 5px; }
+
+  .footer-link-section {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
 }
 
 .navbar-default .navbar-nav > .open > a:hover,  //1
@@ -71,9 +89,7 @@ footer a {
 .dropdown-menu > li > a:hover,  //5
 .dropdown-menu > li > a:focus,  //5
 .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,  //6
-.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus,  //6
-footer a:hover,  //7
-footer a:focus { //7
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus { //6
   background-color: #eeeeee;
   color: #333;
 }
@@ -84,7 +100,9 @@ footer a:focus { //7
 .pagination > li > span,  //4
 .dropdown-menu > li > a,  //5
 .navbar-default .navbar-nav .open .dropdown-menu > li > a,  //6
-footer a {  //7
+footer a,
+footer a:hover,
+footer a:focus {
   color: #333;
 }
 
