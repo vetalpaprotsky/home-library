@@ -36,3 +36,7 @@
 .block {
   @include background-tile;
 }
+
+@media all and (max-width: 517px) {
+	.super-small { width: 100% !important; }
+}
