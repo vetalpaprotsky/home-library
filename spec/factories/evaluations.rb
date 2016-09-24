@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :vote do
-    rating 2
+  factory :evaluation do
+    value 2
     association :user, factory: :user
     association :book, factory: :book
   end

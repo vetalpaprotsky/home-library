@@ -12,7 +12,8 @@ en:
   edit: "Edit"
   delete: "Delete"
   are_you_sure?: "Are you sure?"
-  author: "Author"
+  evaluation: "Your evaluation"
+  authenticate_for_evaluation: "You need to sign in or sign up to evaluate books"
 
   new_book_title: "Add new book"
   edit_book_title: "Edit book"

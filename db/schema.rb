@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 20160921192526) do
     t.integer  "book_id"
   end
 
+  create_table "evaluations", force: :cascade do |t|
+    t.integer  "value",      default: 1
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "evaluations", ["book_id"], name: "index_evaluations_on_book_id"
+  add_index "evaluations", ["user_id", "book_id"], name: "index_evaluations_on_user_id_and_book_id", unique: true
+  add_index "evaluations", ["user_id"], name: "index_evaluations_on_user_id"
+
   create_table "languages", force: :cascade do |t|
     t.string   "name"
     t.string   "abbr"
@@ -65,17 +77,5 @@ ActiveRecord::Schema.define(version: 20160921192526) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
-  create_table "votes", force: :cascade do |t|
-    t.integer  "rating",     default: 1
-    t.integer  "user_id"
-    t.integer  "book_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "votes", ["book_id"], name: "index_votes_on_book_id"
-  add_index "votes", ["user_id", "book_id"], name: "index_votes_on_user_id_and_book_id", unique: true
-  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end

@@ -14,6 +14,9 @@ class BooksController < ApplicationController
 
   def show
     @comments = @book.comments.page(params[:page]).per(10)
+    if current_user
+      @user_evaluation = @book.evaluations.where(user_id: current_user.id).first
+    end
   end
 
   def new
