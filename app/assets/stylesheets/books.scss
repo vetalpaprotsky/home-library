@@ -11,7 +11,6 @@
 }
 
 @mixin book-image {
-  display: block;
   margin: auto;
   padding: 0;
 }
@@ -39,4 +38,13 @@
 
 @media all and (max-width: 517px) {
 	.super-small { width: 100% !important; }
+}
+
+.book-evaluation {
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+.book-image-section {
+	text-align: center;
 }

@@ -12,7 +12,9 @@ ua:
   edit: "Редагувати"
   delete: "Видалити"
   are_you_sure?: "Ви впевнені?"
-  author: "Автор"
+  evaluation: "Ваша оцінка"
+  number_of_evaluations: "кількість оцінок"
+  authenticate_for_evaluation: "Вам необхідно увійти в систему або зареєструватися щоб оцінювати книги"
 
   new_book_title: "Добавлення нової книги"
   edit_book_title: "Редагування книги"

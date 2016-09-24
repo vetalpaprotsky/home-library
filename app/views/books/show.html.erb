@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+  <div class="book-image-section col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
     <%= image_tag @book.book_img.url(:book_show), class: "book-show" %>
 
@@ -8,6 +8,9 @@
         <% if @book.user == current_user %>
           <%= link_to t('edit'),   edit_book_path(@book), class: "btn btn-default" %>
           <%= link_to t('delete'), book_path(@book), method: :delete, data: { confirm: t('are_you_sure?') }, class: "btn btn-default" %>
+        <% else %>
+          <div class='book-evaluation'><%= t('evaluation') %></div>
+          <span id="evaluation"></span>
         <% end %>
       </div>
     </div>
@@ -17,12 +20,11 @@
     <div class="block">
       <h3><%= @book.title %></h3>
       <h4 class="author"><%= @book.author %></h4>
-      <div class="average-book-rating-section">
-
-        <%# TODO: show book rating using stars %>
-
-        <!-- <span class="average-book-rating" data-score="<%= @average_rating %>"></span> -->
-        <!-- <span class="number-of-votes">Votes: ...</span> -->
+      <div class="average-book-evaluation-section">
+        <span id="average-book-evaluation"></span>
+        <span class="number-of-evaluations">
+          <%= t('number_of_evaluations') %>: <%= @number_of_evaluations %>
+        </span>
       </div>
       <p class="book-description"><%= @book.description %></p>
     </div>
@@ -45,11 +47,29 @@
 </div>
 
 <script type="text/javascript">
-  $('.average-book-rating').raty({
+  $('#average-book-evaluation').raty({
     readOnly: true,
     path: '/assets/',
-    score: function() {
-      return $(this).attr('data-score')
+    score: <%= @average_evaluation %>
+  });
+
+  $('#evaluation').raty({
+    size: 24,
+    path: '/assets/',
+    score: <%= @user_evaluation ? @user_evaluation.value : 0 %>,
+    starHalf: 'star-half-big.png',
+    starOff: 'star-off-big.png',
+    starOn: 'star-on-big.png',
+    click: function(score, callback) {
+      $.ajax({
+        type: "POST",
+        url: "<%= book_evaluate_path(@book) %>",
+        data: {
+          evaluation: {
+            value: score
+          }
+        }
+      });
     }
   });
 </script>

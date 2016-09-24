@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.average-book-rating-section, .comment-section {
+.average-book-evaluation-section, .comment-section {
   margin-bottom: 10px;
 }
 
@@ -18,8 +18,8 @@
   margin-top: -5px;
 }
 
-.number-of-votes {
+.number-of-evaluations {
   position: relative;
-  top: 3px;
+  top: 1px;
   left: 5px;
 }

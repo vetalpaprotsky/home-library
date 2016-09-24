@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     devise_for :users
     resources :books do
       resources :comments, except: [:index, :show], shallow: true
+      post 'evaluate', to: 'evaluations#evaluate'
     end
-    get '/change_locale' => 'locales#change_locale'
+    get 'change_locale' => 'locales#change_locale'
   end
 end
