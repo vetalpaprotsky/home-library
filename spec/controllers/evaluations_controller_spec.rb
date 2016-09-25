@@ -1,25 +1,17 @@
 require 'rails_helper'
 
 describe EvaluationsController do
-
+  # TODO: write tests
   context "SIGN OUT" do
 
-    describe "POST create" do
-
-    end
-
-    describe "PUT update" do
+    describe "POST evaluate" do
 
     end
   end
 
   context "SIGN IN" do
 
-    describe "POST create" do
-
-    end
-
-    describe "PUT update" do
+    describe "POST evaluate" do
 
     end
   end

@@ -15,9 +15,10 @@ NUMBER_OF_EVALUATIONS_FOR_BOOK = 20
 
 def make_users
   NUMBER_OF_USERS.times do
-    User.create!(email:                 Faker::Internet.email,
-                 password:              "37zudohov",
-                 password_confirmation: "37zudohov")
+    user = User.create!(email:                 Faker::Internet.email,
+                        password:              "37zudohov",
+                        password_confirmation: "37zudohov")
+    user.confirm
   end
 end
 

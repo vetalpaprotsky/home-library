@@ -42,4 +42,5 @@ describe Book do
     before { @book.category_id = nil }
     it { should_not be_valid }
   end
+  # TODO: write tests for instance method average_evaluation
 end
