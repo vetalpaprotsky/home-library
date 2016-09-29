@@ -6,14 +6,16 @@ class EvaluationsController < ApplicationController
       render 'authenticate_user'
     else
       @book = Book.find(params[:book_id])
-      @evaluation = current_user.evaluations.where(book_id: @book.id).first
+      if @book.user != current_user
+        @evaluation = current_user.evaluations.where(book_id: @book.id).first
 
-      if @evaluation.nil?
-        @evaluation = current_user.evaluations.build(evaluations_params)
-        @evaluation.book_id = @book.id
-        @evaluation.save
-      else
-        @evaluation.update(evaluations_params)
+        if @evaluation.nil?
+          @evaluation = current_user.evaluations.build(evaluations_params)
+          @evaluation.book_id = @book.id
+          @evaluation.save
+        else
+          @evaluation.update(evaluations_params)
+        end
       end
 
       render nothing: true
