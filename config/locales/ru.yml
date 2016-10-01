@@ -45,16 +45,16 @@ ru:
         book:
           attributes:
             category_id:
-              blank: "Не может быть пустая"
+              blank: "не может быть пустая"
             description:
-              too_short: "Слишком короткий (минимум %{count} символов)"
+              too_short: "слишком короткий (минимум %{count} символов)"
             book_img:
-              less_than: "Максимальный размер %{max}"
-              spoofed_media_type: "Формат должен быть jpg, jpeg или png"
+              less_than: "максимальный размер %{max}"
+              spoofed_media_type: "формат должен быть jpg, jpeg или png"
             book_img_content_type:
-              invalid: "Формат должен быть jpg, jpeg или png"
+              invalid: "формат должен быть jpg, jpeg или png"
       messages:
-        blank: "Не может быть пустым"
+        blank: "не может быть пустым"
     attributes:
       book:
         category: "Категория"

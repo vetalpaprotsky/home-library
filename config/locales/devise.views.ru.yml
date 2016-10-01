@@ -5,12 +5,13 @@ ru:
         user:
           attributes:
             email:
-              invalid: "Некорректный адрес"
+              invalid: "некорректный адрес"
+              taken: "уже занят"
             password:
-              too_short: "Слишком короткий (минимум %{count} символов)"
-              too_long: "Слишком долгий (максимум %{count} символов)"
+              too_short: "слишком короткий (минимум %{count} символов)"
+              too_long: "слишком долгий (максимум %{count} символов)"
             password_confirmation:
-              confirmation: "Не совпадает с паролем"
+              confirmation: "не совпадает с паролем"
     attributes:
       user:
         current_password: "Текущий пароль"
