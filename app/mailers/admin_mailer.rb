@@ -1,10 +1,9 @@
 class AdminMailer < ApplicationMailer
+  default to: 'vetalpaprotsky@gmail.com'
 
-  AdminEmail = 'vetalpaprotsky@gmail.com'
-
-  def new_user(user)
-    @user = user
+  def new_registration(user_id)
+    @user = User.find(user_id)
     @ua = 'ua'
-    mail(to: AdminEmail, subject: "New User")
+    mail(subject: "New Registration")
   end
 end

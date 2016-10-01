@@ -3,7 +3,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   def show
     super
     if resource.errors.empty?
-      # => mail to admin
+      AdminMailer.new_registration(resource.id).deliver_now
     end
   end
 end
