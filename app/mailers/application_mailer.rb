@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'home.library.website@gmail.com'
+  include MailerDefaultConfiguration
+  default from: Sender
   layout 'mailer'
-  include MailerDefaultUrlOptions
 end

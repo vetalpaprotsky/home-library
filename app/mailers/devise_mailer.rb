@@ -1,3 +1,4 @@
 class DeviseMailer < Devise::Mailer
-  include MailerDefaultUrlOptions
+  include MailerDefaultConfiguration
+  default from: Sender
 end

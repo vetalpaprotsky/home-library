@@ -1,4 +1,5 @@
-module MailerDefaultUrlOptions
+module MailerDefaultConfiguration
+  Sender = '"Home Library" <home.library.website@gmail.com>'
 
   private
 

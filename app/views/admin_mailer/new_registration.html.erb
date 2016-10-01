@@ -1,10 +1,2 @@
-<hr/>
-<div style='text-align: center;'>
-  <h3>
-    <%= @user.email %> have signed up!
-  </h3>
-  <p>
-    <%= link_to 'Home Library', root_url(locale: @ua) %>
-  </p>
-</div>
-<hr/>
+<p><%= @user.email %> have signed up!</p>
+<p><%= link_to 'Home Library', root_url(locale: @ua) %></p>
