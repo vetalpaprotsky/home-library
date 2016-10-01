@@ -15,8 +15,6 @@
   padding: 0;
 }
 
-
-
 .book {
 	height: 295px;
 	width: 200px;
@@ -38,11 +36,6 @@
 
 @media all and (max-width: 517px) {
 	.super-small { width: 100% !important; }
-}
-
-.book-evaluation {
-	font-size: 16px;
-	margin-bottom: 5px;
 }
 
 .book-image-section {
