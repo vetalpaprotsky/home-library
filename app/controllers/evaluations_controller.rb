@@ -10,6 +10,7 @@ class EvaluationsController < ApplicationController
         @evaluation = current_user.evaluations.where(book_id: @book.id).first
 
         if @evaluation.nil?
+          @new_evaluation = true
           @evaluation = current_user.evaluations.build(evaluations_params)
           @evaluation.book_id = @book.id
           @evaluation.save
@@ -18,7 +19,11 @@ class EvaluationsController < ApplicationController
         end
       end
 
-      render nothing: true
+      if @evaluation.try(:valid?)
+        @average_evaluation = @book.average_evaluation
+      else
+        render nothing: true
+      end
     end
   end
 

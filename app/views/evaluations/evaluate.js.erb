@@ -1,0 +1,7 @@
+setAverageEvaluation(<%= @average_evaluation %>)
+
+<% if @new_evaluation %>
+  $('#number-of-evaluations').html(
+    parseInt($('#number-of-evaluations').html()) + 1
+  );
+<% end %>

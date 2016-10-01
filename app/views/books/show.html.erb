@@ -22,8 +22,11 @@
       <h4 class="author"><%= @book.author %></h4>
       <div class="average-book-evaluation-section">
         <span id="average-book-evaluation"></span>
-        <span class="number-of-evaluations">
-          <%= t('number_of_evaluations') %>: <%= @number_of_evaluations %>
+        <span class="number-of-evaluations-section">
+          <%= t('number_of_evaluations') %>:
+          <span id="number-of-evaluations">
+            <%= @number_of_evaluations %>
+          </span>
         </span>
       </div>
       <p class="book-description"><%= @book.description %></p>
@@ -47,11 +50,7 @@
 </div>
 
 <script type="text/javascript">
-  $('#average-book-evaluation').raty({
-    readOnly: true,
-    path: '/assets/',
-    score: <%= @average_evaluation %>
-  });
+  setAverageEvaluation(<%= @average_evaluation %>)
 
   $('#evaluation').raty({
     size: 24,
