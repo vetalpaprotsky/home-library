@@ -16,3 +16,11 @@
 //= require bootstrap-filestyle
 //= require turbolinks
 //= require_tree .
+
+function setAverageEvaluation(averageEvaluation) {
+  $('#average-book-evaluation').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: averageEvaluation
+  });
+}

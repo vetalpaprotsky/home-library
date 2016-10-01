@@ -7,10 +7,8 @@ describe EvaluationsController do
 
   shared_examples 'evaluation' do |attrs|
 
-    before { @attrs = attrs == 'valid_attrs' ? valid_attrs : attrs == 'invalid_attrs' ? invalid_attrs : nil }
-
     it 'assings evaluation to @evaluation' do
-      post :evaluate, book_id: @book.id, evaluation: @attrs, format: :js
+      post :evaluate, book_id: @book.id, evaluation: send(attrs), format: :js
 
       expect(assigns(:evaluation).id).to eq @evaluation.id
     end
@@ -18,10 +16,8 @@ describe EvaluationsController do
 
   shared_examples 'book' do |attrs|
 
-    before { @attrs = attrs == 'valid_attrs' ? valid_attrs : attrs == 'invalid_attrs' ? invalid_attrs : nil }
-
     it 'assings book to @book' do
-      post :evaluate, book_id: @book.id, evaluation: @attrs, format: :js
+      post :evaluate, book_id: @book.id, evaluation: send(attrs), format: :js
 
       expect(assigns(:book).id).to eq @book.id
     end
@@ -29,23 +25,52 @@ describe EvaluationsController do
 
   shared_examples 'evaluation is not created' do |attrs|
 
-    before { @attrs = attrs == 'valid_attrs' ? valid_attrs : attrs == 'invalid_attrs' ? invalid_attrs : nil }
-
     it 'does not create new evaluation' do
       expect do
-        post :evaluate, book_id: @book.id, evaluation: @attrs, format: :js
+        post :evaluate, book_id: @book.id, evaluation: send(attrs), format: :js
       end.not_to change(Evaluation, :count)
     end
   end
 
   shared_examples 'nothing is rendered' do |attrs|
 
-    before { @attrs = attrs == 'valid_attrs' ? valid_attrs : attrs == 'invalid_attrs' ? invalid_attrs : nil }
-
     it 'renders nothing' do
-      post :evaluate, book_id: @book.id, evaluation: @attrs, format: :js
+      post :evaluate, book_id: @book.id, evaluation: send(attrs), format: :js
 
       expect(response.body).to be_blank
+    end
+  end
+
+  shared_examples 'template is rendered' do |attrs|
+
+    it 'renders evaluate template' do
+      post :evaluate, book_id: @book.id, evaluation: send(attrs), format: :js
+
+      expect(response).to render_template 'evaluate'
+    end
+  end
+
+  shared_examples 'new_evaluation' do |attrs|
+
+    it 'assigns true to @new_evaluation' do
+      post :evaluate, book_id: @book.id, evaluation: send(attrs), format: :js
+
+      expect(assigns(:new_evaluation)).to eq true
+    end
+  end
+
+  shared_examples 'valid evaluation' do
+
+    it 'renders evaluate template' do
+      post :evaluate, book_id: @book.id, evaluation: valid_attrs, format: :js
+
+      expect(response).to render_template 'evaluate'
+    end
+
+    it 'assigns average book evaluation to @average_evaluation' do
+      post :evaluate, book_id: @book.id, evaluation: valid_attrs, format: :js
+
+      expect(assigns(:average_evaluation)).to eq @book.average_evaluation
     end
   end
 
@@ -98,7 +123,7 @@ describe EvaluationsController do
 
               include_examples 'evaluation', 'valid_attrs'
 
-              include_examples 'nothing is rendered', 'valid_attrs'
+              include_examples 'valid evaluation', 'valid_attrs'
 
               it 'updates evaluation' do
                 post :evaluate, book_id: @book.id, evaluation: valid_attrs, format: :js
@@ -115,7 +140,9 @@ describe EvaluationsController do
                 expect(assigns(:evaluation).id).to eq @user.evaluations.where(book_id: @book.id).first.id
               end
 
-              include_examples 'nothing is rendered', 'valid_attrs'
+              include_examples 'new_evaluation', 'valid_attrs'
+
+              include_examples 'valid evaluation', 'valid_attrs'
 
               it 'creates new evaluation that belongs to current user' do
                 expect do
@@ -165,6 +192,8 @@ describe EvaluationsController do
             end
 
             context 'evaluation does not exist' do
+
+              include_examples 'new_evaluation', 'invalid_attrs'
 
               include_examples 'nothing is rendered', 'invalid_attrs'
 
