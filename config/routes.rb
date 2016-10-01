@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   scope "/:locale" do
     root 'books#index'
-    devise_for :users
+    devise_for :users, controllers: { registrations: 'users/registrations' }
     resources :books do
       resources :comments, except: [:index, :show], shallow: true
       post 'evaluate', to: 'evaluations#evaluate'
