@@ -48,8 +48,8 @@ def make_comments
   end
 
   def make_evaluations
-    books = Book.all
-    users = User.all
+    books = Book.last(NUMBER_OF_BOOKS)
+    users = User.last(NUMBER_OF_USERS)
 
     books.each do |book|
       random_users = []
