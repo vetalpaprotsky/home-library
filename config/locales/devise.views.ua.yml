@@ -5,12 +5,13 @@ ua:
         user:
           attributes:
             email:
-              invalid: "Некоректний адрес"
+              invalid: "некоректний адрес"
+              taken: "вже зайнятий"
             password:
-              too_short: "Занадто короткий (мінімум %{count} символів)"
-              too_long: "Занадто довгий (максимум %{count} символів)"
+              too_short: "занадто короткий (мінімум %{count} символів)"
+              too_long: "занадто довгий (максимум %{count} символів)"
             password_confirmation:
-              confirmation: "Не співпадає з паролем"
+              confirmation: "не співпадає з паролем"
     attributes:
       user:
         current_password: "Поточний пароль"

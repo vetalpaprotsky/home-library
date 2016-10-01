@@ -45,10 +45,10 @@ en:
         book:
           attributes:
             book_img:
-              less_than: "The maximum size is %{max}"
-              spoofed_media_type: "The format must be jpg, jpeg or png"
+              less_than: "the maximum size is %{max}"
+              spoofed_media_type: "the format must be jpg, jpeg or png"
             book_img_content_type:
-              invalid: "The format must be jpg, jpeg or png"
+              invalid: "the format must be jpg, jpeg or png"
     attributes:
       book:
         book_img: "Image"
