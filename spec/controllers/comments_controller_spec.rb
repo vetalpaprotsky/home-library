@@ -19,6 +19,7 @@ shared_examples "post create comment" do
 end
 
 shared_examples "put update comment" do
+
   it "assigns comment to @comment that belongs to user" do
     put :update, id: @comment.id, comment: @comment_attr
     expect(assigns(:comment).user).to eq @user
@@ -151,7 +152,7 @@ describe CommentsController do
           expect(response).to redirect_to book_path(@book)
         end
 
-        it "raises ActiveRecord::RecordNotFound if book does not exist and does not creates a new comment" do
+        it "raises ActiveRecord::RecordNotFound if book does not exist and does not create a new comment" do
           expect do
             post :create, book_id: 9999, comment: @comment_attr
           end.to raise_error(ActiveRecord::RecordNotFound).and change(Comment, :count).by(0)

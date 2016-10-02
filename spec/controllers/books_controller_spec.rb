@@ -82,12 +82,11 @@ end
 
 shared_examples "get show book" do
 
-  before do
-    @book = FactoryGirl.create(:book)
-    FactoryGirl.create_list(:comment, 11, book: @book)
-  end
+  before { @book = FactoryGirl.create(:book) }
 
   context "without page parameter" do
+
+    before { FactoryGirl.create_list(:comment, 11, book: @book)}
 
     it "populates an array of comments to @comments which belongs to @book" do
       get :show, id: @book.id
@@ -102,7 +101,10 @@ shared_examples "get show book" do
 
   context "with page parameter 2" do
 
-    before { @page = 2 }
+    before do
+      FactoryGirl.create_list(:comment, 11, book: @book)
+      @page = 2
+    end
 
     it "populates an array of comments to @comments which belongs to @book" do
       get :show, id: @book.id, page: @page
@@ -120,7 +122,17 @@ shared_examples "get show book" do
     expect(assigns :book).to eq @book
   end
 
-  it "assigns avarege rating of the book to @average_rating"
+  it "assigns avarege rating of the book to @average_rating" do
+    3.times { FactoryGirl.create(:evaluation, value: rand(1..5), book_id: @book.id) }
+    get :show, id: @book.id
+    expect(assigns :average_evaluation).to eq @book.average_evaluation
+  end
+
+  it "assigns number of evaluations of the book to @number_of_evaluations" do
+    3.times { FactoryGirl.create(:evaluation, book_id: @book.id) }
+    get :show, id: @book.id
+    expect(assigns :number_of_evaluations).to eq @book.evaluations.count
+  end
 
   it "renders show template" do
     get :show, id: @book.id
@@ -229,6 +241,16 @@ describe BooksController do
     describe "GET #show" do
 
       include_examples "get show book"
+
+      context 'user\'s evaluation for the current book exists' do
+
+        before { @evaluation = FactoryGirl.create(:evaluation, book_id: @book.id, user_id: @user.id) }
+
+        it 'assigns user\'s evaluation to @user_evaluation' do
+          get :show, id: @book.id
+          expect(assigns(:user_evaluation)).to eq @evaluation
+        end
+      end
     end
 
     describe "GET #new" do
