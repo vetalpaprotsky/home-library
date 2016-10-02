@@ -6,4 +6,8 @@ class AdminMailer < ApplicationMailer
     @ua = 'ua'
     mail(subject: "New Registration")
   end
+
+  def test
+    mail(subject: "Test")
+  end
 end
