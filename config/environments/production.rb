@@ -20,7 +20,6 @@ Rails.application.configure do
   # NGINX, varnish or squid.
   # config.action_dispatch.rack_cache = true
 
-  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: 'home-library.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
