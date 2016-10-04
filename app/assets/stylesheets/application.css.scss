@@ -78,6 +78,7 @@ footer img { margin: 10px 0; }
   }
 }
 
+.navbar-default .navbar-nav > .open > a,        //1
 .navbar-default .navbar-nav > .open > a:hover,  //1
 .navbar-default .navbar-nav > .open > a:focus,  //1
 .navbar-default .navbar-nav > li > a:hover,  //2
@@ -94,7 +95,6 @@ footer img { margin: 10px 0; }
   color: #333;
 }
 
-.navbar-default .navbar-nav > .open > a,  //1
 .navbar-default .navbar-nav > li > a,  //2
 .pagination > li > a,  //3
 .pagination > li > span,  //4
