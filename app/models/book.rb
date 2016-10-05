@@ -17,10 +17,7 @@ class Book < ActiveRecord::Base
       summa_of_evaluations += evl.value
       number_of_evaluations += 1
     end
-    begin
-      summa_of_evaluations.to_f / number_of_evaluations
-    rescue
-      0
-    end
+    avg = summa_of_evaluations.to_f / number_of_evaluations
+    avg.nan? ? 0 : avg
   end
 end

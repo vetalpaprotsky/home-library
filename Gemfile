@@ -36,6 +36,7 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :production do

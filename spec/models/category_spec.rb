@@ -2,22 +2,29 @@ require 'rails_helper'
 
 describe Category do
 
-  before { @category = FactoryGirl.create(:category) }
-  subject { @category }
+  describe 'database columns' do
+    it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:name).of_type(:string) }
+  end
 
-  it { should be_valid }
-  it { should respond_to(:name) }
-  it { should respond_to(:books) }
+  describe 'relations' do
+    it { is_expected.to have_many(:books) }
+  end
 
-  describe "when name is not present" do
-    before { @category.name = nil }
-    it { should_not be_valid }
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:name) }
+  end
+
+  describe 'responses' do
+    it { is_expected.to respond_to(:books) }
   end
 
   describe "default scope" do
+
     it "is order by name asc" do
-      categories = [@category]
-      5.times { categories << FactoryGirl.create(:category) }
+      categories = FactoryGirl.create_list(:category, 5)
+
       expect(Category.all).to eq categories.sort { |a, b|  a.name <=> b.name }
     end
   end
