@@ -13,10 +13,6 @@ describe Book do
     it { is_expected.to have_db_column(:category_id).of_type(:integer) }
     it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
-    it { is_expected.to have_db_column(:book_img_file_name).of_type(:string) }
-    it { is_expected.to have_db_column(:book_img_content_type).of_type(:string) }
-    it { is_expected.to have_db_column(:book_img_file_size).of_type(:integer) }
-    it { is_expected.to have_db_column(:book_img_updated_at).of_type(:datetime) }
   end
 
   describe 'relations' do
