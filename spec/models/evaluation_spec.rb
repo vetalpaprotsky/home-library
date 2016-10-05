@@ -2,36 +2,24 @@ require 'rails_helper'
 
 describe Evaluation do
 
-  before { @evaluation = FactoryGirl.create(:evaluation) }
-  subject { @evaluation }
-
-  it { should respond_to(:value) }
-  it { should respond_to(:user) }
-  it { should respond_to(:book) }
-  it { should be_valid }
-
-  describe "when value is not preset" do
-    before { @evaluation.value = nil }
-    it { should_not be_valid }
+  describe 'database columns' do
+    it { is_expected.to have_db_column(:id).of_type(:integer) }
+    it { is_expected.to have_db_column(:value).of_type(:integer) }
+    it { is_expected.to have_db_column(:user_id).of_type(:integer) }
+    it { is_expected.to have_db_column(:book_id).of_type(:integer) }
+    it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
   end
 
-  describe "when value is less than 1" do
-    before { @evaluation.value = 0 }
-    it { should_not be_valid }
+  describe 'relations' do
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:book) }
   end
 
-  describe "when value is bigger than 5" do
-    before { @evaluation.value = 6 }
-    it { should_not be_valid }
-  end
-
-  describe "when user_id is not preset" do
-    before { @evaluation.user_id = nil }
-    it { should_not be_valid }
-  end
-
-  describe "when book_id is not preset" do
-    before { @evaluation.book_id = nil }
-    it { should_not be_valid }
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:value) }
+    it { is_expected.to validate_inclusion_of(:value).in_range(1..5) }
+    it { is_expected.to validate_presence_of(:user_id) }
+    it { is_expected.to validate_presence_of(:book_id) }
   end
 end
