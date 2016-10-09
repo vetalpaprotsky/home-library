@@ -1,3 +1,5 @@
+require 'file_size_validator'
+
 class Book < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
@@ -7,6 +9,7 @@ class Book < ActiveRecord::Base
   validates :description, length: { minimum: 127 }
 
   mount_uploader :image, BookImageUploader
+  validates :image, file_size: { maximum: 1.megabyte.to_i }
 
   def average_evaluation
     number_of_evaluations = summa_of_evaluations = 0

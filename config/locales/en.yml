@@ -44,11 +44,5 @@ en:
       models:
         book:
           attributes:
-            book_img:
-              less_than: "the maximum size is %{max}"
-              spoofed_media_type: "the format must be jpg, jpeg or png"
-            book_img_content_type:
-              invalid: "the format must be jpg, jpeg or png"
-    attributes:
-      book:
-        book_img: "Image"
+            image:
+              size_too_big: is too big (maximum size %{file_size})
