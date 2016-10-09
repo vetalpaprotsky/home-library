@@ -56,10 +56,12 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.8)
-      climate_control (>= 0.0.3, < 1.0)
+    carrierwave (0.11.2)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+      mimemagic (>= 0.3.0)
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -144,12 +146,6 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-    paperclip (5.0.0)
-      activemodel (>= 4.2.0)
-      activesupport (>= 4.2.0)
-      cocaine (~> 0.5.5)
-      mime-types
-      mimemagic (~> 0.3.0)
     pg (0.18.4)
     pkg-config (1.1.7)
     pry (0.10.4)
@@ -277,6 +273,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3, >= 3.3.7)
   byebug
   capybara
+  carrierwave
   coffee-rails (~> 4.1.0)
   devise (~> 4.2)
   factory_girl_rails
@@ -286,7 +283,6 @@ DEPENDENCIES
   jquery-rails
   kaminari
   launchy
-  paperclip (~> 5.0)
   pg (= 0.18.4)
   pry-rails
   rails (= 4.2.6)
