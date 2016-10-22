@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe LocalesController do
 
+  let(:user) { FactoryGirl.create(:user) }
+
   shared_examples 'change locale' do
 
     describe '#GET change_locale' do
@@ -21,7 +23,7 @@ describe LocalesController do
 
   context 'SIGNED IN' do
 
-    before { sign_in FactoryGirl.create(:user) }
+    before { sign_in user }
 
     include_examples 'change locale'
   end
