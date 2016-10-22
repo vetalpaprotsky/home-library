@@ -1,5 +1,5 @@
 <div class="book-image-section super-small col-xs-6 col-sm-4 col-md-4 col-lg-3">
   <%= link_to book_path(book) do %>
-    <%= image_tag book.book_img.url(:book_index), class: "book" %>
+    <%= image_tag book.image_url, class: "book" %>
   <% end %>
 </div>

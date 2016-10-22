@@ -39,6 +39,10 @@ ru:
     next: "Следующая"
     previous: "Предыдущая"
 
+  errors:
+    messages:
+      extension_white_list_error: "Вы не можете загружать файлы типа %{extension}, разрешенные типы: %{allowed_types}"
+
   activerecord:
     errors:
       models:
@@ -48,11 +52,8 @@ ru:
               blank: "не может быть пустая"
             description:
               too_short: "слишком короткий (минимум %{count} символов)"
-            book_img:
-              less_than: "максимальный размер %{max}"
-              spoofed_media_type: "формат должен быть jpg, jpeg или png"
-            book_img_content_type:
-              invalid: "формат должен быть jpg, jpeg или png"
+            image:
+              size_too_big: "слишком большое (максимальный размер %{file_size})"
       messages:
         blank: "не может быть пустым"
     attributes:
@@ -61,6 +62,6 @@ ru:
         title: "Название"
         author: "Автор"
         description: "Описание"
-        book_img: "Фото"
+        image: "Фото"
       comment:
         text: "Текст"

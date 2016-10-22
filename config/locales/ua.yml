@@ -39,6 +39,10 @@ ua:
     next: "Наступна"
     previous: "Попередня"
 
+  errors:
+    messages:
+      extension_white_list_error: "Ви не можете завантажувати файли типу %{extension}, дозволені типи: %{allowed_types}"
+
   activerecord:
     errors:
       models:
@@ -50,11 +54,8 @@ ua:
               blank: "не може бути порожня"
             description:
               too_short: "занадто короткий (мінімум %{count} символів)"
-            book_img:
-              less_than: "максимальний розмір %{max}"
-              spoofed_media_type: "формат має бути jpg, jpeg або png"
-            book_img_content_type:
-              invalid: "формат має бути jpg, jpeg або png"
+            image:
+              size_too_big: "занадто велике (максимальний розмір %{file_size})"
       messages:
         blank: "не може бути порожнім"
     attributes:
@@ -63,6 +64,6 @@ ua:
         title: "Назва"
         author: "Автор"
         description: "Опис"
-        book_img: "Фото"
+        image: "Фото"
       comment:
         text: "Текст"

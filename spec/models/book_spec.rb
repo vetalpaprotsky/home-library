@@ -12,10 +12,7 @@ describe Book do
     it { is_expected.to have_db_column(:author).of_type(:string) }
     it { is_expected.to have_db_column(:user_id).of_type(:integer) }
     it { is_expected.to have_db_column(:category_id).of_type(:integer) }
-    it { is_expected.to have_db_column(:book_img_file_name).of_type(:string) }
-    it { is_expected.to have_db_column(:book_img_content_type).of_type(:string) }
-    it { is_expected.to have_db_column(:book_img_file_size).of_type(:integer) }
-    it { is_expected.to have_db_column(:book_img_updated_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:image).of_type(:string) }
   end
 
   describe 'relations' do
@@ -35,7 +32,7 @@ describe Book do
   end
 
   describe 'responses' do
-    it { is_expected.to respond_to(:book_img) }
+    it { is_expected.to respond_to(:image_url) }
     it { is_expected.to respond_to(:user) }
     it { is_expected.to respond_to(:category) }
     it { is_expected.to respond_to(:comments) }
