@@ -192,6 +192,8 @@ GEM
     redis (3.3.1)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
+    rollbar (2.13.3)
+      multi_json
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -286,6 +288,7 @@ DEPENDENCIES
   pg (= 0.18.4)
   pry-rails
   rails (= 4.2.6)
+  rollbar
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

@@ -14,6 +14,7 @@ gem 'kaminari'
 gem 'faker'
 gem 'sidekiq'
 gem 'carrierwave'
+gem 'rollbar'
 
 gem 'jquery-rails'
 gem 'turbolinks'
