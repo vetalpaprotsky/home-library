@@ -78,28 +78,21 @@ footer img { margin: 10px 0; }
   }
 }
 
-.navbar-default .navbar-nav > .open > a,        //1
-.navbar-default .navbar-nav > .open > a:hover,  //1
-.navbar-default .navbar-nav > .open > a:focus,  //1
-.navbar-default .navbar-nav > li > a:hover,  //2
-.navbar-default .navbar-nav > li > a:focus,  //2
-.pagination > li > a:hover,  //3
-.pagination > li > a:focus,  //3
-.pagination > li > span:hover,  //4
-.pagination > li > span:focus,  //4
-.dropdown-menu > li > a:hover,  //5
-.dropdown-menu > li > a:focus,  //5
-.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,  //6
-.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus { //6
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > li > a:hover, //1
+.pagination > li > a:hover, //2
+.pagination > li > span:hover, //3
+.dropdown-menu > li > a:hover { //4
   background-color: #eeeeee;
   color: #333;
 }
 
-.navbar-default .navbar-nav > li > a,  //2
-.pagination > li > a,  //3
-.pagination > li > span,  //4
-.dropdown-menu > li > a,  //5
-.navbar-default .navbar-nav .open .dropdown-menu > li > a,  //6
+.navbar-default .navbar-nav > li > a, //1
+.pagination > li > a, //2
+.pagination > li > span, //3
+.dropdown-menu > li > a, //4
 footer a,
 footer a:hover,
 footer a:focus {
@@ -110,18 +103,17 @@ footer a:focus {
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
   color: #fff !important;
+  background-color: #337ab7;
 }
 
 .navbar-default .navbar-brand,
-.navbar-default .navbar-brand:hover
-.navbar-default .navbar-brand:focus {
-  color: #000 !important;
-}
-
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-  background-color: #337ab7;
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.pagination > li > a:focus,
+.pagination > li > span:focus,
+.dropdown-menu > li > a:focus {
+  color: #333 !important;
+  background-color: #fff;
 }
 
 .navbar {
