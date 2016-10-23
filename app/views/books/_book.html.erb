@@ -2,4 +2,7 @@
   <%= link_to book_path(book) do %>
     <%= image_tag book.image_url, class: "book" %>
   <% end %>
+  <div class="book-title">
+    <%= book.title %>
+  </div>
 </div>
