@@ -20,7 +20,6 @@
 	width: 200px;
 	@include background-tile;
   @include book-image;
-  margin-bottom: 30px;
 }
 
 .book-show {
@@ -40,4 +39,14 @@
 
 .book-image-section {
 	text-align: center;
+	margin-bottom: 15px;
+}
+
+.book-title {
+	max-width: 353px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+	margin: 0 auto;
+  margin-top: 15px;
 }
