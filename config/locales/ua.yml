@@ -12,7 +12,7 @@ ua:
   edit: "Редагувати"
   delete: "Видалити"
   are_you_sure?: "Ви впевнені?"
-  evaluation: "Ваша оцінка"
+  your_evaluation: "Ваша оцінка"
   number_of_evaluations: "кількість оцінок"
   authenticate_for_evaluation: "Вам необхідно увійти в систему або зареєструватися щоб оцінювати книги"
   no_books: "Немає книг"

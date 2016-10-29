@@ -100,14 +100,14 @@ describe BooksController do
 
       include_examples 'get show'
 
-      context 'user\'s evaluation for the book exists' do
+      context 'evaluation for the book exists' do
 
         before { evaluation }
 
-        it 'assigns user\'s evaluation to @user_evaluation' do
+        it 'assigns evaluation to @evaluation' do
           get :show, id: book.id
 
-          expect(assigns(:user_evaluation)).to eq evaluation
+          expect(assigns(:evaluation)).to eq evaluation
         end
       end
     end

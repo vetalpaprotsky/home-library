@@ -9,8 +9,8 @@
           <%= link_to t('edit'),   edit_book_path(@book), class: "btn btn-default" %>
           <%= link_to t('delete'), book_path(@book), method: :delete, data: { confirm: t('are_you_sure?') }, class: "btn btn-default" %>
         <% else %>
-          <div class='book-evaluation'><%= t('evaluation') %></div>
-          <span id="evaluation"></span>
+          <div class='your-evaluation'><%= t('your_evaluation') %></div>
+          <span id="evaluation" data-value="<%= @evaluation ? @evaluation.value : 0 %>" data-url="<%= book_evaluate_path(@book) %>"></span>
         <% end %>
       </div>
     </div>
@@ -21,12 +21,9 @@
       <h3><%= @book.title %></h3>
       <h4 class="author"><%= @book.author %></h4>
       <div class="average-book-evaluation-section">
-        <span id="average-book-evaluation"></span>
+        <span id="average-book-evaluation" data-value="<%= @average_book_evaluation %>"></span>
         <span class="number-of-evaluations-section">
-          <%= t('number_of_evaluations') %>:
-          <span id="number-of-evaluations">
-            <%= @number_of_evaluations %>
-          </span>
+          <%= t('number_of_evaluations') %>: <span id="number-of-evaluations"> <%= @number_of_evaluations %></span>
         </span>
       </div>
       <p class="book-description"><%= @book.description %></p>
@@ -48,27 +45,3 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  setAverageEvaluation(<%= @average_evaluation %>)
-
-  $('#evaluation').raty({
-    size: 24,
-    path: '/assets/',
-    score: <%= @user_evaluation ? @user_evaluation.value : 0 %>,
-    starHalf: 'star-half-big.png',
-    starOff: 'star-off-big.png',
-    starOn: 'star-on-big.png',
-    click: function(score, callback) {
-      $.ajax({
-        type: "POST",
-        url: "<%= book_evaluate_path(@book) %>",
-        data: {
-          evaluation: {
-            value: score
-          }
-        }
-      });
-    }
-  });
-</script>

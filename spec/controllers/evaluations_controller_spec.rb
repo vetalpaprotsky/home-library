@@ -72,10 +72,10 @@ describe EvaluationsController do
       expect(response).to render_template 'evaluate'
     end
 
-    it 'assigns average book evaluation to @average_evaluation' do
+    it 'assigns average book evaluation to @average_book_evaluation' do
       post :evaluate, book_id: book.id, evaluation: valid_attrs, format: :js
 
-      expect(assigns(:average_evaluation)).to eq book.average_evaluation
+      expect(assigns(:average_book_evaluation)).to eq book.average_evaluation
     end
   end
 

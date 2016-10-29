@@ -12,7 +12,7 @@ ru:
   edit: "Редактировать"
   delete: "Удалить"
   are_you_sure?: "Вы уверены?"
-  evaluation: "Ваша оценка"
+  your_evaluation: "Ваша оценка"
   number_of_evaluations: "количество оценок"
   authenticate_for_evaluation: "Вам необходимо войти в систему или зарегистрироваться чтобы оценивать книги"
   no_books: "Нет книг"

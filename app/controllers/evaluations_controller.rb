@@ -20,7 +20,7 @@ class EvaluationsController < ApplicationController
       end
 
       if @evaluation.try(:valid?)
-        @average_evaluation = @book.average_evaluation
+        @average_book_evaluation = @book.average_evaluation
       else
         render nothing: true
       end

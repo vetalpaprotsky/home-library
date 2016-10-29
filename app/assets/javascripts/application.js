@@ -15,12 +15,18 @@
 //= require bootstrap-sprockets
 //= require bootstrap-filestyle
 //= require turbolinks
+//= require jquery-readyselector
 //= require_tree .
 
-function setAverageEvaluation(averageEvaluation) {
+function setAverageBookEvaluation(evaluation) {
   $('#average-book-evaluation').raty({
     readOnly: true,
     path: '/assets/',
-    score: averageEvaluation
+    score: evaluation
   });
+}
+
+function modifyChooseFileButton() {
+  $('span.buttonText').first().remove()
+  $('div.bootstrap-filestyle > input').first().attr('placeholder', 'jpg, jpeg, png')
 }

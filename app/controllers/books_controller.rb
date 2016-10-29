@@ -14,11 +14,11 @@ class BooksController < ApplicationController
 
   def show
     @comments = @book.comments.page(params[:page]).per(10)
-    @average_evaluation = @book.average_evaluation
+    @average_book_evaluation = @book.average_evaluation
     @number_of_evaluations = @book.evaluations.count
 
     if current_user
-      @user_evaluation = @book.evaluations.where(user_id: current_user.id).first
+      @evaluation = @book.evaluations.where(user_id: current_user.id).first
     end
   end
 
