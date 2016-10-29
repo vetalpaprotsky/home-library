@@ -11,11 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-filestyle
-//= require turbolinks
 //= require jquery-readyselector
+//= require turbolinks
 //= require_tree .
 
 function setAverageBookEvaluation(evaluation) {
