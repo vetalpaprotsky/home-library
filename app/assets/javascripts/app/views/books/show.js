@@ -27,5 +27,4 @@ $('.books.show').ready(function() {
 
   var dataEvaluation = document.querySelector('#evaluation').dataset;
   setEvaluation(dataEvaluation.value, dataEvaluation.url)
-  //console.log('books show');
 });
