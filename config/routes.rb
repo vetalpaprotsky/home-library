@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get '/' => 'application#redirect_to_root'
 
+  devise_for :admin, skip: [:passwords, :registrations], controllers: { sessions: 'admin/sessions' }
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   scope "/:locale" do
     root 'books#index'
     devise_for :users, controllers: { confirmations: 'users/confirmations' }
