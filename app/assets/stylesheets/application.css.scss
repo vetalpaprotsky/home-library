@@ -128,9 +128,12 @@ footer a:focus {
   margin: 10px 0 -5px 0;
 }
 
-.category-header {
-  margin-bottom: 30px;
+.category-picker {
+  margin-bottom: 40px;
   text-align: center;
+  .bootstrap-select {
+    width: 290px !important;
+  }
 }
 
 

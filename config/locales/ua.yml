@@ -1,5 +1,5 @@
 ua:
-  categories: "Категорії"
+  #categories: "Категорії"
   signing_in: "Вхід"
   signing_up: "Реєстрація"
   sign_out: "Вийти"
@@ -16,6 +16,7 @@ ua:
   number_of_evaluations: "кількість оцінок"
   authenticate_for_evaluation: "Вам необхідно увійти в систему або зареєструватися щоб оцінювати книги"
   no_books: "Немає книг"
+  choose_category: "Виберіть категорію..."
 
   new_book_title: "Добавлення нової книги"
   edit_book_title: "Редагування книги"

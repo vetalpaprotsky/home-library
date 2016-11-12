@@ -1,19 +1,19 @@
-<% if params[:category] %>
-  <h1 class="category-header"><%= params[:category] %></h1>
-<% end %>
-<select class="selectpicker" data-live-search="true" title="Choose one of the following...">
-  <% Category.cached_categories.each do |category| %>
-    <% if params[:category] == category.name %>
-      <option value="<%= books_path(category: category.name) %>" selected="selected">
-        <%= category.name %>
-      </option>
-    <% else %>
-      <option value="<%= books_path(category: category.name) %>">
-        <%= category.name %>
-      </option>
+<div class="category-picker">
+  <select class="selectpicker" data-live-search="true" title="<%= t('choose_category') %>">
+    <% Category.cached_categories.each do |category| %>
+      <% if params[:category] == category.name %>
+        <option value="<%= books_path(category: category.name) %>" selected="selected">
+          <%= category.name %>
+        </option>
+      <% else %>
+        <option value="<%= books_path(category: category.name) %>">
+          <%= category.name %>
+        </option>
+      <% end %>
     <% end %>
-  <% end %>
-</select>
+  </select>
+</div>
+
 <% if @books.any? %>
   <div class="row">
     <%= render @books %>

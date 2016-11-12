@@ -1,5 +1,5 @@
 ru:
-  categories: "Категории"
+  #categories: "Категории"
   signing_in: "Вход"
   signing_up: "Регистрация"
   sign_out: "Выйти"
@@ -16,6 +16,7 @@ ru:
   number_of_evaluations: "количество оценок"
   authenticate_for_evaluation: "Вам необходимо войти в систему или зарегистрироваться чтобы оценивать книги"
   no_books: "Нет книг"
+  choose_category: "Выберите категорию..."
 
   new_book_title: "Добавление новой книги"
   edit_book_title: "Редактирование книги"
