@@ -98,14 +98,15 @@ footer img { margin: 10px 0; }
 footer a,
 footer a:hover,
 footer a:focus {
-  color: #333;
+  color: #333 !important;
 }
 
+.pagination > li.active > a,
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
   color: #fff !important;
-  background-color: #337ab7;
+  background-color: #337ab7 !important;
 }
 
 .navbar-default .navbar-brand,
