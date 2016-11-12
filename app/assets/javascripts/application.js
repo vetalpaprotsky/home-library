@@ -15,6 +15,8 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-filestyle
+//= require_tree ../../../vendor/assets/javascripts/bootstrap_select
+//= require jquery.raty
 //= require jquery-readyselector
 //= require turbolinks
 //= require_tree .
