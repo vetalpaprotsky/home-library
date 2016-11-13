@@ -140,6 +140,13 @@ footer a:focus {
   .bootstrap-select {
     width: 290px !important;
   }
+  .btn {
+    white-space: nowrap
+  }
+}
+
+.devise-links {
+  margin-top: 10px;
 }
 
 
@@ -152,8 +159,8 @@ footer a:focus {
   margin: 15px 0
 }
 
-.btn-custom {
-  outline: none !important;
+.btn {
+  white-space: normal;
 }
 
 #flash-error, #flash-alert {
