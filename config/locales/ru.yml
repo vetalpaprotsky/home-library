@@ -17,6 +17,7 @@ ru:
   authenticate_for_evaluation: "Вам необходимо войти в систему или зарегистрироваться чтобы оценивать книги"
   no_books: "Нет книг"
   choose_category: "Выберите категорию..."
+  added_by: "Добавил"
 
   new_book_title: "Добавление новой книги"
   edit_book_title: "Редактирование книги"

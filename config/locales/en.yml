@@ -17,6 +17,7 @@ en:
   authenticate_for_evaluation: "You need to sign in or sign up to evaluate books"
   no_books: "There are no books"
   choose_category: "Choose category..."
+  added_by: "Added by"
 
   new_book_title: "Add new book"
   edit_book_title: "Edit book"
