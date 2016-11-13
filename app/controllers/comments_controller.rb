@@ -11,10 +11,15 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build(comment_params)
     @comment.book_id = @book.id
 
-    if @comment.save
-      redirect_to book_path(@book)
-    else
-      render 'new'
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to book_path(@book) }
+        format.js
+        #format.json { render json: @comment, status: :created, location: @comment }
+      else
+        format.html { render 'new' }
+        #format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
     end
   end
 
