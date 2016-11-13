@@ -53,4 +53,20 @@
 
 .added-by {
 	text-align: right;
+	margin-bottom: 0;
+}
+
+.categories {
+	margin-bottom: 5px;
+	a {
+		font-size: 16px;
+		border: 1px solid #337ab7;
+		padding: 3px 5px;
+		border-radius: 5px;
+	}
+	a:hover, a:focus {
+		text-decoration: none;
+		color: #fff;
+		background-color: #337ab7;
+	}
 }
