@@ -15,10 +15,9 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to book_path(@book) }
         format.js
-        #format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { render 'new' }
-        #format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js { render 'not_created' }
       end
     end
   end

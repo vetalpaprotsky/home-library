@@ -1,1 +1,6 @@
 $("<%= escape_javascript(render @comment) %>").prependTo("#comments");
+
+var commentText = $('#comment-form form .comment_text')
+commentText.removeClass('has-error');
+commentText.children('.help-block').remove();
+commentText.children('textarea').val('');

@@ -42,9 +42,11 @@
     <div class="block">
       <h3><%= t('comments') %></h3>
 
-      <div id="comment-form">
-        <%= render 'shared/comment_form' %>
-      </div>
+      <% if current_user %>
+        <div id="comment-form">
+          <%= render 'shared/comment_form' %>
+        </div>
+      <% end %>
 
       <div id="comments">
         <%= render @comments %>
