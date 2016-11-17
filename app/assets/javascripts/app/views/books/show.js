@@ -1,5 +1,9 @@
 $('.books.show').ready(function() {
 
+  $(".comment-links a[data-method=delete]").on("ajax:success", function(evt, data, status, xhr){
+    $(evt.target).parents('.comment').remove();
+  });
+
   function setEvaluation(evaluation, url) {
     $('#evaluation').raty({
       size: 24,
@@ -22,8 +26,8 @@ $('.books.show').ready(function() {
     });
   }
 
-  var dataAverageBookEvaluation = document.querySelector('#average-book-evaluation').dataset;
-  setAverageBookEvaluation(dataAverageBookEvaluation.value);
+  var averageBookEvaluation = document.querySelector('#average-book-evaluation').dataset.value;
+  setAverageBookEvaluation(averageBookEvaluation);
 
   var dataEvaluation = document.querySelector('#evaluation').dataset;
   setEvaluation(dataEvaluation.value, dataEvaluation.url)

@@ -8,7 +8,7 @@
   <% if current_user == comment.user %>
     <div class="comment-links">
       <%= link_to t('edit'), edit_comment_path(comment) %>
-      <%= link_to t('delete'), comment_path(comment), method: :delete, data: { confirm: t('are_you_sure?') } %>
+      <%= link_to t('delete'), comment_path(comment), method: :delete, data: { confirm: t('are_you_sure?'), remote: true } %>
     </div>
   <% end %>
 </div>

@@ -18,7 +18,7 @@ class BooksController < ApplicationController
     @number_of_evaluations = @book.evaluations.count
 
     if current_user
-      @comment = Comment.new
+      @new_comment = Comment.new
       @evaluation = @book.evaluations.where(user_id: current_user.id).first
     end
   end
