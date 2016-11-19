@@ -33,7 +33,7 @@ en:
         create: "Save"
         update: "Save"
       comment:
-        create: "Save"
+        create: "Send"
         update: "Save"
 
   pagination:
@@ -49,3 +49,7 @@ en:
           attributes:
             image:
               size_too_big: is too big (maximum size %{file_size})
+            blank: "не може бути порожнім"
+    attributes:
+      comment:
+        text: "Your comment"

@@ -33,7 +33,7 @@ ru:
         create: "Сохранить"
         update: "Сохранить"
       comment:
-        create: "Сохранить"
+        create: "Отправить"
         update: "Сохранить"
 
   pagination:
@@ -67,4 +67,4 @@ ru:
         description: "Описание"
         image: "Фото"
       comment:
-        text: "Текст"
+        text: "Ваш комментарий"

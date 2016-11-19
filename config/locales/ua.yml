@@ -33,7 +33,7 @@ ua:
         create: "Зберегти"
         update: "Зберегти"
       comment:
-        create: "Зберегти"
+        create: "Відправити"
         update: "Зберегти"
 
   pagination:
@@ -69,4 +69,4 @@ ua:
         description: "Опис"
         image: "Фото"
       comment:
-        text: "Текст"
+        text: "Ваш коментар"
