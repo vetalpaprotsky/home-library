@@ -1,8 +1,8 @@
 $('.books.show').ready(function() {
 
-  $(".comment-links a[data-method=delete]").on("ajax:success", function(evt, data, status, xhr){
+  $(document).on('ajax:success', '.comment-links a[data-method=delete]', function(evt, data, status, xhr) {
     $(evt.target).parents('.comment').remove();
-  });
+  })
 
   function setEvaluation(evaluation, url) {
     $('#evaluation').raty({
