@@ -2,6 +2,6 @@
   <%= f.input :text %>
   <%= f.button :submit %>
   <% unless comment.new_record? %>
-    <a class="btn btn-default" data-cancel-comment-editing>cancel</a>
+    <a class="btn btn-default" data-cancel-comment-editing><%= t('cancel') %></a>
   <% end %>
 <% end %>
