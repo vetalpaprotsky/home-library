@@ -1,14 +1,16 @@
-<div class="comment">
+<div class="comment" data-id="<%= comment.id %>">
   <div class="comment-section">
-    <%= link_to comment.user.email, "#" %>
-  </div>
-
-  <p><%= comment.text %></p>
-
-  <% if current_user == comment.user %>
-    <div class="comment-links">
-      <%= link_to t('edit'), edit_comment_path(comment) %>
-      <%= link_to t('delete'), comment_path(comment), method: :delete, data: { confirm: t('are_you_sure?'), remote: true } %>
+    <div class="comment-owner">
+      <%= link_to comment.user.email, "#" %>
     </div>
-  <% end %>
+
+    <p><%= comment.text %></p>
+
+    <% if current_user == comment.user %>
+      <div class="comment-links">
+        <%= link_to t('edit'), edit_comment_path(comment), data: { id: comment.id, remote: true } %>
+        <%= link_to t('delete'), comment_path(comment), method: :delete, data: { confirm: t('are_you_sure?'), remote: true } %>
+      </div>
+    <% end %>
+  </div>
 </div>

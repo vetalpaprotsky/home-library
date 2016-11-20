@@ -1,0 +1,3 @@
+$('<%= ".comment[data-id=#{@comment.id}]" %>').replaceWith(
+  $("<%= escape_javascript(render 'comment', comment: @comment) %>")
+);

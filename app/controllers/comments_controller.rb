@@ -27,10 +27,14 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update(comment_params)
-      redirect_to book_path(@comment.book)
-    else
-      render 'edit'
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to book_path(@comment.book) }
+        format.js
+      else
+        format.html { render 'edit' }
+        format.js { render 'not_updated' }
+      end
     end
   end
 
