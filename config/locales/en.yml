@@ -23,9 +23,10 @@ en:
   edit_book_title: "Edit book"
 
   comments: "Comments"
-  add_comment: "Add comment"
+  #add_comment: "Add comment"
   new_comment_title: "Add new comment"
   edit_comment_title: "Edit comment"
+  cancel: 'Cancel'
 
   helpers:
     submit:
@@ -33,8 +34,8 @@ en:
         create: "Save"
         update: "Save"
       comment:
-        create: "Save"
-        update: "Save"
+        create: "Send"
+        update: "Update"
 
   pagination:
     first: "First"
@@ -49,3 +50,6 @@ en:
           attributes:
             image:
               size_too_big: is too big (maximum size %{file_size})
+    attributes:
+      comment:
+        text: "Your comment"

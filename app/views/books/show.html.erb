@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+  <div class="book-data-section col-xs-12 col-sm-6 col-md-8 col-lg-8">
     <div class="block">
       <h3><%= @book.title %></h3>
       <h4 class="author"><%= @book.author %></h4>
@@ -30,20 +30,31 @@
       <div class="categories"><%= link_to @book.category.name, books_path(category: @book.category.name) %></div>
       <div class="added-by"><%= t('added_by') %> <a href="#"><%= @book.user.email %></a></div>
     </div>
-    <div class="btn-section">
+
+    <!--<div class="btn-section">
       <div class="btn-group">
-        <%= link_to t('add_comment'), new_book_comment_path(@book), class: "btn btn-default" %>
+        <#%= link_to t('add_comment'), new_book_comment_path(@book), class: "btn btn-default" %>
       </div>
-    </div>
+    </div>-->
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" style="float: right;">
     <div class="block">
-      <h3><%= t('comments') %></h3>
-      <%= render @comments %>
-      <div class="text-center">
-        <%= paginate @comments, pagination_class: "pagination-sm" %>
+      <h3 class="text-center"><%= t('comments') %></h3>
+
+      <% if current_user %>
+        <div id="comment-form">
+          <%= render 'shared/comment_form', comment: @new_comment %>
+        </div>
+      <% end %>
+
+      <div id="comments">
+        <%= render @comments %>
       </div>
+
+      <!--<div class="text-center">
+        <#%= paginate @comments, pagination_class: "pagination-sm" %>
+      </div>-->
     </div>
   </div>
 </div>

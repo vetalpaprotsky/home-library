@@ -19,10 +19,6 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-
-
-/* General styles */
-
 * {
   margin: 0;
   padding: 0;
@@ -66,9 +62,14 @@ footer a {
   white-space: nowrap;
 }
 
-footer .container { text-align: center; }
-
-footer img { margin: 10px 0; }
+footer {
+  .container {
+    text-align: center;
+  }
+  img {
+    margin: 10px 0;
+  }
+}
 
 .social-link:hover, .social-link:focus { text-decoration: none; }
 
@@ -148,10 +149,6 @@ footer a:focus {
 .devise-links {
   margin-top: 10px;
 }
-
-
-
-/* Other */
 
 .btn-section {
   width: 100%;

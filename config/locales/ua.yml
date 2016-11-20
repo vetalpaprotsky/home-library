@@ -23,9 +23,10 @@ ua:
   edit_book_title: "Редагування книги"
 
   comments: "Коментарі"
-  add_comment: "Добавити коментар"
+  #add_comment: "Добавити коментар"
   new_comment_title: "Добавлення нового коментаря"
   edit_comment_title: "Редагування коментаря"
+  cancel: "Скасувати"
 
   helpers:
     submit:
@@ -33,8 +34,8 @@ ua:
         create: "Зберегти"
         update: "Зберегти"
       comment:
-        create: "Зберегти"
-        update: "Зберегти"
+        create: "Відправити"
+        update: "Оновити"
 
   pagination:
     first: "Перша"
@@ -69,4 +70,4 @@ ua:
         description: "Опис"
         image: "Фото"
       comment:
-        text: "Текст"
+        text: "Ваш коментар"

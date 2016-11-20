@@ -23,9 +23,10 @@ ru:
   edit_book_title: "Редактирование книги"
 
   comments: "Комментарии"
-  add_comment: "Добавить комментарий"
+  #add_comment: "Добавить комментарий"
   new_comment_title: "Добавление нового комментария"
   edit_comment_title: "Редактирование комментария"
+  cancel: "Отмена"
 
   helpers:
     submit:
@@ -33,8 +34,8 @@ ru:
         create: "Сохранить"
         update: "Сохранить"
       comment:
-        create: "Сохранить"
-        update: "Сохранить"
+        create: "Отправить"
+        update: "Обновить"
 
   pagination:
     first: "Первая"
@@ -67,4 +68,4 @@ ru:
         description: "Описание"
         image: "Фото"
       comment:
-        text: "Текст"
+        text: "Ваш комментарий"
