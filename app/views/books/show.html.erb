@@ -44,7 +44,7 @@
 
       <% if current_user %>
         <div id="comment-form">
-          <%= render 'shared/comment_form', comment: @new_comment %>
+          <%= render 'comments/remote_form', comment: @new_comment %>
         </div>
       <% end %>
 

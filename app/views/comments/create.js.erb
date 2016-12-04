@@ -1,4 +1,4 @@
 $("<%= escape_javascript(render @comment) %>").prependTo("#comments");
 $('#comment-form').html(
-  $("<%= escape_javascript(render 'shared/comment_form', comment: @new_comment) %>")
+  $("<%= escape_javascript(render 'remote_form', comment: @new_comment) %>")
 )
