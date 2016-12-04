@@ -19,7 +19,7 @@ class BooksController < ApplicationController
 
     if current_user
       @new_comment = Comment.new
-      @evaluation = @book.evaluations.where(user_id: current_user.id).first
+      @evaluation = Evaluation.where(book_id: @book.id, user_id: current_user.id).first
     end
   end
 
