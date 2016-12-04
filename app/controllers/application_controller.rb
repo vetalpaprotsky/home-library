@@ -14,15 +14,19 @@ class ApplicationController < ActionController::Base
 
     def set_locale
       if params[:locale].blank?
-        logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
-        abbr = extract_locale_from_accept_language_header
-        I18n.locale = if Language.find_by(abbr: abbr).nil?
-                        logger.debug "* Unknown Language"
-                        I18n.default_locale
-                      else
-                        abbr
-                      end
-        logger.debug "* Locale set to '#{I18n.locale}'"
+        if cookies[:locale]
+          I18n.locale = cookies[:locale]
+        else
+          logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
+          abbr = extract_locale_from_accept_language_header
+          I18n.locale = if Language.find_by(abbr: abbr).nil?
+                          logger.debug "* Unknown Language"
+                          I18n.default_locale
+                        else
+                          abbr
+                        end
+          logger.debug "* Locale set to '#{I18n.locale}'"
+        end
       else
         I18n.locale = params[:locale]
       end

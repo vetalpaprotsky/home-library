@@ -13,6 +13,12 @@ describe LocalesController do
 
         expect(response).to redirect_to root_path(locale: 'ua')
       end
+
+      it 'set cookies[:locale] equal to params[:language_abbr]' do
+        get :change_locale, language_abbr: 'ua'
+
+        expect(cookies[:locale]).to eq 'ua'
+      end
     end
   end
 
