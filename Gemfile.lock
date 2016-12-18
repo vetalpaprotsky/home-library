@@ -168,6 +168,8 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     rack (1.6.4)
+    rack-mini-profiler (0.10.1)
+      rack (>= 1.2.0)
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
       rack (>= 1.1)
@@ -317,6 +319,7 @@ DEPENDENCIES
   launchy
   pg (= 0.18.4)
   pry-rails
+  rack-mini-profiler
   rails (= 4.2.6)
   rails_admin (~> 1.0)
   rollbar

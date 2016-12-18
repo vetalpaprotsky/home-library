@@ -14,6 +14,7 @@ gem 'sidekiq'
 gem 'carrierwave'
 gem 'rollbar'
 gem 'rails_admin', '~> 1.0'
+gem 'rack-mini-profiler'
 
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
