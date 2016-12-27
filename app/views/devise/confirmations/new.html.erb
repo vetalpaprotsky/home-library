@@ -3,7 +3,7 @@
     <h3 class="text-center"><%= t('devise.shared.links.didn_t_receive_confirmation_instructions') %></h3>
 
     <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-      <%= f.error_notification %>
+      <!-- <%#= f.error_notification %> -->
       <%= f.full_error :confirmation_token %>
 
       <div class="form-inputs">
