@@ -53,6 +53,7 @@
         <% else %>
           <li><%= link_to t('devise.sessions.new.sign_in'), new_user_session_path %></li>
           <li><%= link_to t('devise.registrations.new.sign_up'), new_user_registration_path %></li>
+          <li><%= link_to 'Twitter', user_twitter_omniauth_authorize_path %>
         <% end %>
       </ul>
     </div>
