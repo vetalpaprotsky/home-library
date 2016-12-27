@@ -15,6 +15,7 @@ gem 'carrierwave'
 gem 'rollbar'
 gem 'rails_admin', '~> 1.0'
 gem 'rack-mini-profiler'
+gem 'omniauth-twitter'
 
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
