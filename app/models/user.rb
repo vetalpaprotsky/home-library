@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 
+  # Works with sidekiq
   # def send_devise_notification(notification, *args)
   #   devise_mailer.send(notification, self, *args).deliver_later
   # end
@@ -19,17 +20,8 @@ class User < ActiveRecord::Base
     where(provider: auth[:provider], uid: auth[:uid]).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-    end
-  end
-
-  def self.new_with_session(params, session)
-    if session['devise.user_attributes']
-      new(session['devise.user_attributes'], without_protection: true) do |user|
-        user.attributes = params
-        user.valid?
-      end
-    else
-      super
+      user.email = auth[:info][:email]
+      user.skip_confirmation!
     end
   end
 

@@ -16,6 +16,7 @@ gem 'rollbar'
 gem 'rails_admin', '~> 1.0'
 gem 'rack-mini-profiler'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
