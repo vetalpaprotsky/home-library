@@ -1,4 +1,4 @@
-$('.books.new').ready(function() {
+$('.books.update').ready(function() {
 
   modifyChooseFileButton();
   useMultipleOptionSelection();
