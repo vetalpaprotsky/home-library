@@ -1,4 +1,4 @@
-$('.books.new').ready(function() {
+$('.books.create').ready(function() {
 
   modifyChooseFileButton();
   useMultipleOptionSelection();

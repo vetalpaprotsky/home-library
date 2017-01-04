@@ -33,3 +33,12 @@ function modifyChooseFileButton() {
   $('span.buttonText').first().remove()
   $('div.bootstrap-filestyle > input').first().attr('placeholder', 'jpg, jpeg, png')
 }
+
+function useMultipleOptionSelection() {
+  $('option').mousedown(function(e) {
+    e.preventDefault();
+    e.target.parentNode.focus()
+    $(this).prop('selected', !$(this).prop('selected'));
+    return false;
+  });
+}
