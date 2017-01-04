@@ -52,8 +52,8 @@ ua:
       models:
         book:
           attributes:
-            category_id:
-              blank: "не може бути порожня"
+            categories:
+              too_short: "не може бути менше ніж %{count}"
             title:
               blank: "не може бути порожня"
             description:
@@ -69,5 +69,6 @@ ua:
         author: "Автор"
         description: "Опис"
         image: "Фото"
+        categories: "Категорії"
       comment:
         text: "Ваш коментар"

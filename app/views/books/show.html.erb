@@ -27,7 +27,9 @@
         </span>
       </div>
       <p class="book-description"><%= @book.description %></p>
-      <div class="categories"><%= link_to @book.category.name, books_path(category: @book.category.name) %></div>
+      <div class="categories">
+        <%= render @book.categories %>
+      </div>
       <div class="added-by"><%= t('added_by') %> <a href="#"><%= @book.user.email %></a></div>
     </div>
 

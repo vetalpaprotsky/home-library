@@ -9,7 +9,7 @@ describe Category do
   end
 
   describe 'relations' do
-    it { is_expected.to have_many(:books) }
+    it { is_expected.to have_and_belong_to_many(:books) }
   end
 
   describe 'validations' do

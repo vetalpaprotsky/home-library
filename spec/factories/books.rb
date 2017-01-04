@@ -6,7 +6,7 @@ FactoryGirl.define do
     description { Faker::Lorem.paragraph(7) }
     author { Faker::Book.author }
     association :user, factory: :user
-    association :category, factory: :category
+    categories {[FactoryGirl.create(:category)]}
   end
 
   factory :invalid_book, parent: :book do

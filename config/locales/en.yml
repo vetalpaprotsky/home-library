@@ -48,8 +48,12 @@ en:
       models:
         book:
           attributes:
+            categories:
+              too_short: "can't be less than 1"
             image:
               size_too_big: is too big (maximum size %{file_size})
     attributes:
+      book:
+        categories: "Categories"
       comment:
         text: "Your comment"

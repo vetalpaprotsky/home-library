@@ -66,10 +66,16 @@
 		border: 1px solid #337ab7;
 		padding: 3px 5px;
 		border-radius: 5px;
+		margin-top: 5px;
+		display: inline-block;
 	}
 	a:hover, a:focus {
 		text-decoration: none;
 		color: #fff;
 		background-color: #337ab7;
 	}
+}
+
+#book_category_ids {
+	height: 200px;
 }

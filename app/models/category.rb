@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  has_many :books
+  has_and_belongs_to_many :books
 
   validates :name, presence: true
   default_scope -> { order('name ASC') }

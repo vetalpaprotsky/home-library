@@ -35,10 +35,16 @@ function modifyChooseFileButton() {
 }
 
 function useMultipleOptionSelection() {
-  $('option').mousedown(function(e) {
+  $("select").mousedown(function(e){
     e.preventDefault();
-    e.target.parentNode.focus()
-    $(this).prop('selected', !$(this).prop('selected'));
-    return false;
-  });
+
+    var select = this;
+    var scroll = select.scrollTop;
+
+    e.target.selected = !e.target.selected;
+
+    setTimeout(function(){select.scrollTop = scroll;}, 0);
+
+    $(select ).focus();
+  }).mousemove(function(e){e.preventDefault()});
 }
