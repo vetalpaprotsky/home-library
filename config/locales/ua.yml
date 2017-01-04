@@ -3,7 +3,10 @@ ua:
   signing_in: "Вхід"
   signing_up: "Реєстрація"
   sign_out: "Вийти"
-  add_book: "Добавити книгу"
+  menu: "Меню"
+  profile: "Обліковий Запис"
+  my_books: "Мої Книги"
+  add_book: "Добавити Книгу"
   about: "Про нас"
   contacts: "Контакти"
   help: "Допомога"
@@ -32,7 +35,7 @@ ua:
     submit:
       book:
         create: "Зберегти"
-        update: "Зберегти"
+        update: "Оновити"
       comment:
         create: "Відправити"
         update: "Оновити"

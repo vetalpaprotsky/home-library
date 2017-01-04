@@ -84,7 +84,7 @@ ua:
       destroyed: "Бувайте! Ваш обліковий запис був успішно видалений. Сподіваємось незабаром побачитись з Вами знову."
       edit:
         are_you_sure: "Ви впевнені?"
-        cancel_my_account: "Скасувати мій обліковий запис"
+        cancel_my_account: "Видалити"
         currently_waiting_confirmation_for_email: "В даний час очікуємо підтвердження від: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: "залиште порожнім, якщо ви не хочете змінити його"
         title: "Редагувати %{resource}"

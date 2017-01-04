@@ -3,7 +3,10 @@ ru:
   signing_in: "Вход"
   signing_up: "Регистрация"
   sign_out: "Выйти"
-  add_book: "Добавить книгу"
+  menu: "Меню"
+  profile: "Учетная Запись"
+  my_books: "Мои Книги"
+  add_book: "Добавить Книгу"
   about: "О нас"
   contacts: "Контакты"
   help: "Помощь"
@@ -32,7 +35,7 @@ ru:
     submit:
       book:
         create: "Сохранить"
-        update: "Сохранить"
+        update: "Обновить"
       comment:
         create: "Отправить"
         update: "Обновить"

@@ -3,7 +3,10 @@ en:
   signing_in: "Sing in"
   signing_up: "Sign up"
   sign_out: "Sign out"
-  add_book: "Add book"
+  menu: "Menu"
+  profile: "Account"
+  my_books: "My Books"
+  add_book: "Add Book"
   about: "About"
   contacts: "Contacts"
   help: "Help"
@@ -32,7 +35,7 @@ en:
     submit:
       book:
         create: "Save"
-        update: "Save"
+        update: "Update"
       comment:
         create: "Send"
         update: "Update"
