@@ -8,7 +8,11 @@ class BooksController < ApplicationController
                Book.order('created_at DESC').page(params[:page]).per(12)
              else
                category = Category.find_by(name: params[:category])
-               Book.where(category_id: category.id).order('created_at DESC').page(params[:page]).per(12)
+               Book.includes(:categories)
+                   .where(categories: { id: category.id })
+                   .order('books.created_at DESC')
+                   .page(params[:page])
+                   .per(12)
              end
   end
 
@@ -56,7 +60,7 @@ class BooksController < ApplicationController
 
     def book_params
       params.require(:book).permit(:title,  :description,
-                                   :author, :category_id, :image)
+                                   :author, :image, category_ids: [])
     end
 
     def find_book

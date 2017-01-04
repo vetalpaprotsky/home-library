@@ -2,10 +2,10 @@ require 'file_size_validator'
 
 class Book < ActiveRecord::Base
   belongs_to :user
-  belongs_to :category
+  has_and_belongs_to_many :categories
   has_many :comments, dependent: :destroy
   has_many :evaluations, dependent: :destroy
-  validates :title, :description, :author, :user_id, :category_id, presence: true
+  validates :title, :description, :author, :user_id, presence: true
   validates :description, length: { minimum: 127 }
 
   mount_uploader :image, BookImageUploader

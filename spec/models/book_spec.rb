@@ -11,13 +11,12 @@ describe Book do
     it { is_expected.to have_db_column(:description).of_type(:text) }
     it { is_expected.to have_db_column(:author).of_type(:string) }
     it { is_expected.to have_db_column(:user_id).of_type(:integer) }
-    it { is_expected.to have_db_column(:category_id).of_type(:integer) }
     it { is_expected.to have_db_column(:image).of_type(:string) }
   end
 
   describe 'relations' do
     it { is_expected.to belong_to(:user) }
-    it { is_expected.to belong_to(:category) }
+    it { is_expected.to have_and_belong_to_many(:categories) }
     it { is_expected.to have_many(:comments) }
     it { is_expected.to have_many(:evaluations) }
   end
@@ -27,14 +26,13 @@ describe Book do
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_presence_of(:author) }
     it { is_expected.to validate_presence_of(:user_id) }
-    it { is_expected.to validate_presence_of(:category_id) }
     it { is_expected.to validate_length_of(:description).is_at_least(127) }
   end
 
   describe 'responses' do
     it { is_expected.to respond_to(:image_url) }
     it { is_expected.to respond_to(:user) }
-    it { is_expected.to respond_to(:category) }
+    it { is_expected.to respond_to(:categories) }
     it { is_expected.to respond_to(:comments) }
     it { is_expected.to respond_to(:evaluations) }
   end
