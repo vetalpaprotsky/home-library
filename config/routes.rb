@@ -8,7 +8,12 @@ Rails.application.routes.draw do
 
   scope "/:locale" do
     root 'books#index'
+
+    # devise_for :users,
+    #            controllers: { confirmations: 'users/confirmations', registrations: 'users/registrations' },
+    #            skip: :omniauth_callbacks
     devise_for :users, controllers: { confirmations: 'users/confirmations' }, skip: :omniauth_callbacks
+
     resources :books do
       resources :comments, except: [:index, :show], shallow: true
       post 'evaluate', to: 'evaluations#evaluate'
