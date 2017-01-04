@@ -52,8 +52,8 @@ ru:
       models:
         book:
           attributes:
-            category_id:
-              blank: "не может быть пустая"
+            categories:
+              too_short: "не может быть менее чем %{count}"
             description:
               too_short: "слишком короткий (минимум %{count} символов)"
             image:
@@ -67,5 +67,6 @@ ru:
         author: "Автор"
         description: "Описание"
         image: "Фото"
+        categories: "Категории"
       comment:
         text: "Ваш комментарий"

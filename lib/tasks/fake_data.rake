@@ -31,7 +31,7 @@ def make_books
     users.sample.books.create!(title:       Faker::Book.title,
                                description: Faker::Lorem.paragraph(7),
                                author:      Faker::Book.author,
-                               category_id: categories.sample.id)
+                               categories:  categories.sample(rand(1..7)))
   end
 end
 

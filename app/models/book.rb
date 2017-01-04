@@ -7,6 +7,7 @@ class Book < ActiveRecord::Base
   has_many :evaluations, dependent: :destroy
   validates :title, :description, :author, :user_id, presence: true
   validates :description, length: { minimum: 127 }
+  validates :categories, length: { minimum: 1 }
 
   mount_uploader :image, BookImageUploader
   validates :image, file_size: { maximum: 1.megabyte.to_i }
