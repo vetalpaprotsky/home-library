@@ -6,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   # Some Twitter users don't have email
-  # So I need to make an workarond in order to register them
+  # So I need to make an workaround in order to register them
   # There's a good explanation how to do that in this video
   # Ruby on Rails Railscasts PRO #235 Devise and OmniAuth
   # alias_method :twitter, :all

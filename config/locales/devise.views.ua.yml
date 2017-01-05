@@ -69,7 +69,7 @@ ua:
     passwords:
       edit:
         change_my_password: "Змінити мій пароль"
-        change_your_password: "Змінити ваш пароль"
+        change_your_password: "Зміна паролю"
         confirm_new_password: "Підтвердіть новий пароль"
         new_password: "Новий пароль"
       new:

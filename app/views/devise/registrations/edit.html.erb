@@ -1,4 +1,4 @@
-<div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
   <div class="block">
     <h3 class="text-center"><%= t('profile') %></h3>
 
@@ -14,7 +14,8 @@
 
         <%= f.input :password, autocomplete: "off", hint: t('.leave_blank_if_you_don_t_want_to_change_it'), required: false %>
         <%= f.input :password_confirmation, required: false %>
-        <% if f.object.encrypted_password.present? %>
+
+        <% if f.object.password_in_use?(reload_encrypted_password: true) %>
           <%= f.input :current_password, hint: t('.we_need_your_current_password_to_confirm_your_changes'), required: true %>
         <% end %>
       </div>

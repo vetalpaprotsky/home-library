@@ -61,6 +61,10 @@ ru:
               too_short: "слишком короткий (минимум %{count} символов)"
             image:
               size_too_big: "слишком большое (максимальный размер %{file_size})"
+        user:
+          attributes:
+            current_password:
+              invalid: "недействителен"
       messages:
         blank: "не может быть пустым"
     attributes:

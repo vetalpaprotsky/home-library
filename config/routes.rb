@@ -6,13 +6,13 @@ Rails.application.routes.draw do
 
   devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  scope "/:locale" do
+  scope '/:locale' do
     root 'books#index'
 
-    # devise_for :users,
-    #            controllers: { confirmations: 'users/confirmations', registrations: 'users/registrations' },
-    #            skip: :omniauth_callbacks
-    devise_for :users, controllers: { confirmations: 'users/confirmations' }, skip: :omniauth_callbacks
+    devise_for :users, controllers: {
+                         confirmations: 'users/confirmations',
+                         passwords: 'users/passwords'
+                     }, skip: :omniauth_callbacks
 
     resources :books do
       resources :comments, except: [:index, :show], shallow: true

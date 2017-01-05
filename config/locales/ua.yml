@@ -63,6 +63,10 @@ ua:
               too_short: "занадто короткий (мінімум %{count} символів)"
             image:
               size_too_big: "занадто велике (максимальний розмір %{file_size})"
+        user:
+          attributes:
+            current_password:
+              invalid: "недійсний"
       messages:
         blank: "не може бути порожнім"
     attributes:
