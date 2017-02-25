@@ -21,5 +21,5 @@ Rails.application.routes.draw do
     get 'change_locale' => 'locales#change_locale'
   end
 
-  get '/.well-known/acme-challenge/ff07tbcfVywxMo-5YPMiz-j7JG33LNxSHutIOAeQOBI' => 'pages#letsencrypt'
+  get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
 end
