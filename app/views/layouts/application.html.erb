@@ -41,7 +41,7 @@
           </a>
           <ul class="dropdown-menu" role="menu">
             <% Language.cached_languages.each do |language| %>
-              <li class="<%= 'active' if params[:locale] == language.abbr %>">
+              <li class="<%= 'active' if I18n.locale.to_s == language.abbr %>">
                 <%= link_to language.name, change_locale_path(language_abbr: language.abbr), class: "link" %>
               </li>
             <% end %>
