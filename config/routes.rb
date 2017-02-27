@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/' => 'application#redirect_to_root'
+  get '/' => 'books#index'
 
   devise_for :admin, skip: [:passwords, :registrations], controllers: { sessions: 'admin/sessions' }
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
