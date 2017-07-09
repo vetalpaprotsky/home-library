@@ -1,6 +1,13 @@
 namespace :fake_data do
   desc "Fill database with fake data"
   task populate: :environment do
+    Admin.delete_all
+    User.delete_all
+    Book.delete_all
+    Comment.delete_all
+    Evaluation.delete_all
+
+    make_admin
     make_users
     make_books
     make_comments
@@ -13,11 +20,15 @@ NUMBER_OF_BOOKS                = 100
 NUMBER_OF_COMMENTS_FOR_BOOK    = 15
 NUMBER_OF_EVALUATIONS_FOR_BOOK = 20
 
+def make_admin
+  Admin.create(email:    "vetalpaprotsky@gmail.com",
+               password: "12345678")
+end
+
 def make_users
   NUMBER_OF_USERS.times do
-    user = User.new(email:                 Faker::Internet.email,
-                    password:              "37zudohov",
-                    password_confirmation: "37zudohov")
+    user = User.new(email:    Faker::Internet.email,
+                    password: "12345678")
     user.skip_confirmation!
     user.save!
   end
