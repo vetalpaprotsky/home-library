@@ -36,7 +36,7 @@ module HomeLibrary
       port:                   587,
       domain:                'gmail.com',
       user_name:             'home.library.website@gmail.com',
-      password:              '37zudohov',
+      password:               ENV['HOME_LIBRARY_MAILER_PASSWORD'],
       authentication:        'plain'
     }
 
