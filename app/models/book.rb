@@ -6,7 +6,7 @@ class Book < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :evaluations, dependent: :destroy
   validates :title, :description, :author, :user_id, presence: true
-  validates :description, length: { minimum: 127 }
+  validates :description, length: { minimum: 50 }
   validates :categories, length: { minimum: 1 }
 
   mount_uploader :image, BookImageUploader

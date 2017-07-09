@@ -25,7 +25,7 @@ describe Book do
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_presence_of(:author) }
     it { is_expected.to validate_presence_of(:user_id) }
-    it { is_expected.to validate_length_of(:description).is_at_least(127) }
+    it { is_expected.to validate_length_of(:description).is_at_least(50) }
   end
 
   describe 'responses' do
