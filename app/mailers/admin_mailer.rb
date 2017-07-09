@@ -3,7 +3,7 @@ class AdminMailer < ApplicationMailer
 
   def new_registration(user_id)
     @user = User.find(user_id)
-    @ua = 'ua'
+    @locale = 'ua'
     mail(subject: "New Registration")
   end
 
