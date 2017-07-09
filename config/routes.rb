@@ -15,6 +15,8 @@ Rails.application.routes.draw do
                          registrations: 'users/registrations'
                      }, skip: :omniauth_callbacks
 
+    get 'my_books', to: 'books#my_books', as: :my_books
+
     resources :books do
       resources :comments, except: [:index, :show], shallow: true
       post 'evaluate', to: 'evaluations#evaluate'

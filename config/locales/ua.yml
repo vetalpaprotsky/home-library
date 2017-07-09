@@ -18,7 +18,8 @@ ua:
   your_evaluation: "Ваша оцінка"
   number_of_evaluations: "кількість оцінок"
   authenticate_for_evaluation: "Вам необхідно увійти в систему або зареєструватися щоб оцінювати книги"
-  no_books: "Немає книг"
+  no_books: "Немає жодної книги"
+  no_my_books: "У вас немає жодної книги"
   choose_category: "Виберіть категорію..."
   added_by: "Добавив"
 

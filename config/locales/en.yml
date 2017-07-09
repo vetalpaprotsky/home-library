@@ -19,6 +19,7 @@ en:
   number_of_evaluations: "number of evaluations"
   authenticate_for_evaluation: "You need to sign in or sign up to evaluate books"
   no_books: "There are no books"
+  no_my_books: "You do not have any books"
   choose_category: "Choose category..."
   added_by: "Added by"
 

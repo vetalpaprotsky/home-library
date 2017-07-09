@@ -18,7 +18,8 @@ ru:
   your_evaluation: "Ваша оценка"
   number_of_evaluations: "количество оценок"
   authenticate_for_evaluation: "Вам необходимо войти в систему или зарегистрироваться чтобы оценивать книги"
-  no_books: "Нет книг"
+  no_books: "Нет ни одной книги"
+  no_my_books: "У вас нет ни одной книги"
   choose_category: "Выберите категорию..."
   added_by: "Добавил"
 

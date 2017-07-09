@@ -1,0 +1,8 @@
+<h1 id="my_books"><%= t('my_books') %></h1>
+<% if @books.any? %>
+  <div class="row">
+    <%= render @books %>
+  </div>
+<% else %>
+  <h3><%= t('no_my_books') %>.</h3>
+<% end %>

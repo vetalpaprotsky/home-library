@@ -3,6 +3,10 @@ class BooksController < ApplicationController
   before_action :find_book, only: :show
   before_action :find_book_for_current_user, only: [:edit, :update, :destroy]
 
+  def my_books
+    @books = current_user.books.order('created_at DESC')
+  end
+
   def index
     @books = if params[:category].blank?
                Book.order('created_at DESC').page(params[:page]).per(12)
