@@ -27,7 +27,8 @@ end
 
 def make_users
   NUMBER_OF_USERS.times do
-    user = User.new(email:    Faker::Internet.email,
+    user = User.new(name:     Faker::Name.name,
+                    email:    Faker::Internet.email,
                     password: "12345678")
     user.skip_confirmation!
     user.save!

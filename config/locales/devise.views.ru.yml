@@ -14,6 +14,7 @@ ru:
               confirmation: "не совпадает с паролем"
     attributes:
       user:
+        name: "Имя"
         current_password: "Текущий пароль"
         email: Email
         password: "Пароль"

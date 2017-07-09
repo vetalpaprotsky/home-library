@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
          :omniauthable
 
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
+  validates :name, presence: true
 
   # Sometimes password is required for validation.
   # When omniauth user creates password in profile or reset password using email
@@ -24,6 +25,7 @@ class User < ActiveRecord::Base
     where(provider: auth[:provider], uid: auth[:uid]).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
+      user.name = auth[:info][:name]
       user.email = auth[:info][:email]
       user.skip_confirmation!
     end

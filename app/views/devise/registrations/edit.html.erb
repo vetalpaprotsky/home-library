@@ -6,7 +6,8 @@
       <!-- <%#= f.error_notification %> -->
 
       <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :name, required: true, autofocus: true %>
+        <%= f.input :email, required: true %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></p>
