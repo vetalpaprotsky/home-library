@@ -1,5 +1,5 @@
 ua:
-  #categories: "Категорії"
+  # categories: "Категорії"
   signing_in: "Вхід"
   signing_up: "Реєстрація"
   sign_out: "Вийти"
@@ -26,7 +26,7 @@ ua:
   edit_book_title: "Редагування книги"
 
   comments: "Коментарі"
-  #add_comment: "Добавити коментар"
+  # add_comment: "Добавити коментар"
   new_comment_title: "Добавлення нового коментаря"
   edit_comment_title: "Редагування коментаря"
   cancel: "Скасувати"
