@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Language do
-
   describe 'database columns' do
     it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
@@ -22,7 +21,6 @@ describe Language do
         FactoryGirl.create(:language, abbr: 'ru'),
         FactoryGirl.create(:language, abbr: 'ca')
       ]
-
       expect(Language.all).to eq languages.sort { |a, b|  a.abbr <=> b.abbr }
     end
   end

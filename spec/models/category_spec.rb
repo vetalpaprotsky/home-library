@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Category do
-
   describe 'database columns' do
     it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
@@ -21,10 +20,8 @@ describe Category do
   end
 
   describe "default scope" do
-
     it "is order by name asc" do
       categories = FactoryGirl.create_list(:category, 5)
-
       expect(Category.all).to eq categories.sort { |a, b|  a.name <=> b.name }
     end
   end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Comment do
-
   describe 'database columns' do
     it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
@@ -27,10 +26,8 @@ describe Comment do
   end
 
   describe "default scope" do
-
     it "is order by created_at desc" do
       comments = FactoryGirl.create_list(:comment, 5)
-
       expect(Comment.all).to eq comments.sort { |a, b|  b.created_at <=> a.created_at }
     end
   end

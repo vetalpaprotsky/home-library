@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Book do
-
   let(:book) { FactoryGirl.create(:book) }
 
   describe 'database columns' do
@@ -38,22 +37,17 @@ describe Book do
   end
 
   describe 'instance methods' do
-
     describe '#average_evaluation' do
-
       context 'evaluations exist' do
-
         before { @evaluations = (1..5).map { FactoryGirl.create(:evaluation, book: book, value: rand(1..5)).value } }
 
         it 'returns average evaluation of the book' do
           average_evaluation = @evaluations.inject { |sum, evl| sum + evl }.to_f / @evaluations.count
-
           expect(book.average_evaluation).to eq average_evaluation
         end
       end
 
       context 'evaluations do not exist' do
-
         it 'returns 0' do
           expect(book.average_evaluation).to eq 0
         end
