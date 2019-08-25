@@ -24,7 +24,7 @@
 function setAverageBookEvaluation(evaluation) {
   $('#average-book-evaluation').raty({
     readOnly: true,
-    path: '/assets/',
+    path: '/raty/',
     score: evaluation
   });
 }

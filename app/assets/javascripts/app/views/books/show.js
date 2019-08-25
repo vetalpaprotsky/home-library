@@ -22,7 +22,7 @@ $('.books.show').ready(function() {
 function setEvaluation(evaluation, url) {
   $('#evaluation').raty({
     size: 24,
-    path: '/assets/',
+    path: '/raty/',
     score: evaluation,
     starHalf: 'star-half-big.png',
     starOff: 'star-off-big.png',
